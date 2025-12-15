@@ -20,7 +20,7 @@ public class CharacterMovement : MonoBehaviour
     {
         var velocity = new Vector3(input.MoveInput.x, 0, input.MoveInput.y) * Speed;
         //controller.SimpleMove(velocity);
-        controller.Move(velocity*Time.deltaTime);
+        controller.SimpleMove(velocity*Time.deltaTime);
         //Cridem a Look At
         if (velocity.magnitude > 0.01f)
         {

@@ -249,7 +249,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -749,7 +749,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 791473482}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &791473486
 Camera:
   m_ObjectHideFlags: 0
@@ -933,7 +933,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9337045df4fe3d747881e8c3184d6e0a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14849
+      value: 14809
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9337045df4fe3d747881e8c3184d6e0a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -971,6 +971,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9337045df4fe3d747881e8c3184d6e0a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1961162035}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9337045df4fe3d747881e8c3184d6e0a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1961162031}
@@ -1232,7 +1235,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: Clica boton derecho o izquierdo para cambiar contador
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1259,7 +1262,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.75
+  m_fontSize: 18
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1331,12 +1334,24 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10.512159, y: 3.402293, z: 9.959471}
+  m_Size: {x: 8.03, y: 2.84, z: 2.05}
   m_Center: {x: -0.0466609, y: 1.4653658, z: 1.1656983}
+--- !u!114 &1961162035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961162030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81e4b9e322d4f574099ace014a3e5bba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System.Collections.Specialized;
 using UnityEngine;
 
 public class InputHandler : MonoBehaviour
@@ -12,5 +13,8 @@ public class InputHandler : MonoBehaviour
         MoveInput.x = Input.GetAxis("Horizontal");
         MoveInput.y = Input.GetAxis("Vertical");
     }
-
+    public Vector3 GetInputInPlane()
+    {
+        return new Vector3(MoveInput.x, 0, MoveInput.y);
+    }
 }

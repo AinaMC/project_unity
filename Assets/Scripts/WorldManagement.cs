@@ -15,7 +15,7 @@ public class WorldManagement : MonoBehaviour
         recibir_puntos(0);
     }
     //Recibir cambios de puntos por interacción y los mandamos script CONTADOR
-    void recibir_puntos(int points)
+    public void recibir_puntos(int points)
     {
         texto_Contador.CambiarContador(points);
         Debug.Log("S'han enviat al Contador: " + points);
