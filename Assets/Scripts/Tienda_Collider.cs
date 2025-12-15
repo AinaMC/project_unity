@@ -16,8 +16,8 @@ public class Tienda_Collider : MonoBehaviour
     {
         
     }
-    private void OnColliderEnter (Collision other)
+    /*private void OnColliderEnter (Collision other)
     {
         world.recibir_puntos(10);
-    }
+    }*/
 }

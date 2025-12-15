@@ -25,6 +25,4 @@ public class player_movement : MonoBehaviour
         animator.SetFloat("Vel_Y", y);
     }
 
-
-
 }
