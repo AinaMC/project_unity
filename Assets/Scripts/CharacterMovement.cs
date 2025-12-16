@@ -21,19 +21,20 @@ public class CharacterMovement : MonoBehaviour
         var velocity = new Vector3(input.MoveInput.x, 0, input.MoveInput.y) * Speed;
         //controller.SimpleMove(velocity);
         controller.SimpleMove(velocity*Time.deltaTime);
-        //Cridem a Look At
-        if (velocity.magnitude > 0.01f)
+
+        //Look At fa que giri dependent del global, no del personatge
+       /* if (velocity.magnitude > 0.01f)
         {
             Turn(velocity);
-        }
+        }*/
     }
 
-    private void Turn(Vector3 dir)
+    /*private void Turn(Vector3 dir)
     {
         Vector3 target = transform.position + dir;
         target.y = transform.position.y;
         transform.LookAt(target);
-    }
+    }*/
 
 }
 
