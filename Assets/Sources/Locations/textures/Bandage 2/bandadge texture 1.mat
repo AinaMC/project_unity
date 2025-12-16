@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: bandadge texture
+  m_Name: bandadge texture 1
   m_Shader: {fileID: -6465566751694194690, guid: 4c933791438e2b94fbe3c63a9cd635a5, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
