@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Tienda_Collider : MonoBehaviour
 {
-    public WorldManagement world;
+    public salud_personaje vida;
 
     //private int puntos_tienda = 10; 
 
@@ -23,7 +23,7 @@ public class Tienda_Collider : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             //Debug.Log("El jugador ha entrado en el trigger.");
-            world.recibir_puntos(10);
+            vida.curarse(10);
 
         }
     }
