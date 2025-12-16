@@ -21,6 +21,7 @@ public class Tienda_Collider : MonoBehaviour
     }
     void OnCollisionEnter (Collision collision)
     {
+        
         world.recibir_puntos(10);
         texto_Contador.CambiarContador(10);
 
