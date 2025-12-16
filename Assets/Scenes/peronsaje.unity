@@ -201,7 +201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 0550f29db805233429996d979acd960d, type: 3}
       propertyPath: m_ApplyRootMotion
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3932036a1746ecd45bf0707d420ad154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 7
+  runSpeed: 300
   rotationSpeed: 250
   animator: {fileID: 104150917}
 --- !u!4 &104150919 stripped
@@ -341,7 +341,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104150914}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9689d0821db0a149a01385f7aca1786, type: 3}
   m_Name: 
@@ -354,7 +354,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104150914}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86ba3b5fa48356f40b3832857492109e, type: 3}
   m_Name: 
@@ -1338,8 +1338,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 8.03, y: 2.84, z: 2.05}
-  m_Center: {x: -0.0466609, y: 1.4653658, z: 1.1656983}
+  m_Size: {x: 8.03, y: 2.84, z: 1.999737}
+  m_Center: {x: -0.046661034, y: 1.4653658, z: 1.140567}
 --- !u!114 &1961162035
 MonoBehaviour:
   m_ObjectHideFlags: 0
