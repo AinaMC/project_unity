@@ -3,15 +3,14 @@ using UnityEngine;
 
 public class Tienda_Collider : MonoBehaviour
 {
-    WorldManagement world;
-    Tienda_Collider tienda;
-    Texto_Contador texto_Contador;
+    public WorldManagement world;
+
     //private int puntos_tienda = 10; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        tienda = GetComponent<Tienda_Collider>();
+       // world = GetComponent<WorldManagement>();
     }
 
     // Update is called once per frame
@@ -19,16 +18,13 @@ public class Tienda_Collider : MonoBehaviour
     {
         
     }
-    void OnCollisionEnter (Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        
-        world.recibir_puntos(10);
-        texto_Contador.CambiarContador(10);
+        if(other.CompareTag("Player"))
+        {
+            //Debug.Log("El jugador ha entrado en el trigger.");
+            world.recibir_puntos(10);
 
+        }
     }
-    /*void OnTriggerEnter(Collision other)
-    {
-        world.recibir_puntos(10);
-
-    }*/
 }
