@@ -346,7 +346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9689d0821db0a149a01385f7aca1786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveInput: {x: 0, y: 0}
+  MoveInput: {x: 0, y: 0, z: 0}
 --- !u!114 &104150922
 MonoBehaviour:
   m_ObjectHideFlags: 0

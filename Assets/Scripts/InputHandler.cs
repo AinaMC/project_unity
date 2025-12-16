@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
-    public Vector2 MoveInput;
+    public Vector3 MoveInput;
 
     void Start()
     { }
