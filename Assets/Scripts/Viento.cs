@@ -1,9 +1,11 @@
 using UnityEngine;
+using System.Collections;
 
+[RequireComponent(typeof(ParticleSystem))]
 public class Viento : MonoBehaviour
 {
-    public Texto_Contador mundo;
-    Vector3 external_Force = new Vector3 (10, 0, 0);
+    CharacterController a;
+    public Vector3 FuerzaViento;
 
     //Viento a Favor o en Contra
     //Neutral --> 21-79
@@ -11,21 +13,23 @@ public class Viento : MonoBehaviour
     //Distopico (en contra) --> 80-100
     void Start()
     {
-        
+        ParticleSystem ps = GetComponent<ParticleSystem>();
+        var ex = ps.externalForces;
+        ex.enabled = true;
+        ex.multiplier = 0.1f;
     }
 
 
     void Update()
     {
-        //Utopico (favor) --> 1-20
-        if ( mundo.estatus_mundo() >= 1 && mundo.estatus_mundo() <= 20)
-        {
+    }
 
-        }
-        //Distopico (en contra) --> 80-100
-        else if (mundo.estatus_mundo() >= 80 && mundo.estatus_mundo() <= 100)
-        {
+    public void viento_favor()
+    {
+        
+    }
+    public void viento_contra()
+    {
 
-        }
     }
 }
