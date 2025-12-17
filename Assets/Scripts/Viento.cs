@@ -22,38 +22,43 @@ public class Viento : MonoBehaviour
     {        
         ParticleSystem ps = GetComponent<ParticleSystem>();  
         var ex = ps.externalForces;
-        ex.enabled = false;
+       
 
         //Viento
         //Utopico (favor) --> 1-20
         if (mundo.estatus_mundo() >= 1 && mundo.estatus_mundo() <= 20)
         {
             viento_favor(ex);
+            ps.Play();
+           
+
+            Debug.Log("Viento a favor activado");
         }
         //Distopico (en contra) --> 80-100
         else if (mundo.estatus_mundo() >= 80 && mundo.estatus_mundo() <= 100)
         {
             viento_contra(ex);
+            ps.Play();
+            
+            Debug.Log("Viento en contra activado");
         }
         else
         {
-            ex.enabled = false;
-            mov.cambiar_vel(300f);
+            ps.Stop();
+            mov.cambiar_vel(7f);
+            Debug.Log("No hay viento, todo normal");
         }
     }
 
     //Activar/Desactivar sistema particules
     public void viento_favor(ParticleSystem.ExternalForcesModule ex)
     {            
-        ex.enabled = true;
         ex.multiplier = 0.1f;
-
-        mov.cambiar_vel(1000f);
+        mov.cambiar_vel(100f);
     }
     public void viento_contra(ParticleSystem.ExternalForcesModule ex)
     {
-        ex.enabled = true;
         ex.multiplier = 0.1f;
-        mov.cambiar_vel(50f);
+        mov.cambiar_vel(1f);
     }
 }
