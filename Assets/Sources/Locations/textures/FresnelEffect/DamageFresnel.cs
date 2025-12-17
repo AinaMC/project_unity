@@ -1,8 +1,9 @@
 using UnityEngine;
 
-public class HealingFresnel : MonoBehaviour
+public class DamageFresnel : MonoBehaviour
 {
     Renderer renderer;
+    public Color DamageColor = new Color(0.6509434f, 0, 0);
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -16,5 +17,6 @@ public class HealingFresnel : MonoBehaviour
     void Update()
     {
         renderer.material.SetFloat("_intensity", 1);
+        renderer.material.SetColor("_Color", DamageColor);
     }
 }
