@@ -29,9 +29,9 @@ public class Texto_Contador : MonoBehaviour
 
 
     }
-    
-    void Update()
+
+    public int estatus_mundo()
     {
-        
+        return puntos_globales;
     }
 }

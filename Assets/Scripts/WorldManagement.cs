@@ -6,6 +6,7 @@ public class WorldManagement : MonoBehaviour
     //Variables
     //Enviar a script CONTADOR
     Texto_Contador texto_Contador;
+
     
     //Trobem el Contador
     void Start()
@@ -34,5 +35,7 @@ public class WorldManagement : MonoBehaviour
         {
             texto_Contador.CambiarContador(1);
         }
+
     }
+
 }
