@@ -1,14 +1,16 @@
+using System.Diagnostics;
 using UnityEngine;
 
 public class Tienda_Collider : MonoBehaviour
 {
-    WorldManagement world;
-    private int puntos_tienda = 10; 
+    public salud_personaje vida;
+
+    //private int puntos_tienda = 10; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+       // world = GetComponent<WorldManagement>();
     }
 
     // Update is called once per frame
@@ -16,8 +18,13 @@ public class Tienda_Collider : MonoBehaviour
     {
         
     }
-    /*private void OnColliderEnter (Collision other)
+    private void OnTriggerEnter(Collider other)
     {
-        world.recibir_puntos(10);
-    }*/
+        if(other.CompareTag("Player"))
+        {
+            //Debug.Log("El jugador ha entrado en el trigger.");
+            vida.curarse(10);
+
+        }
+    }
 }
