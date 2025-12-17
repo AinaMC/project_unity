@@ -24,5 +24,9 @@ public class player_movement : MonoBehaviour
         animator.SetFloat("Vel_X", x);
         animator.SetFloat("Vel_Y", y);
     }
+    public void cambiar_vel(float new_vel)
+    {
+        runSpeed = new_vel;
+    }
 
 }
