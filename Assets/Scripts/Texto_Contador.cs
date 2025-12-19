@@ -8,7 +8,6 @@ public class Texto_Contador : MonoBehaviour
 
     void Start()
     {
-        //CambiarContador(0);
     }
    public void CambiarContador(int points)
     {        
@@ -26,8 +25,6 @@ public class Texto_Contador : MonoBehaviour
             puntos_globales = 1;
             texto.text = "Contador: " + puntos_globales;
         }
-
-
     }
 
     public int estatus_mundo()

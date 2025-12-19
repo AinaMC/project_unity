@@ -6,12 +6,13 @@ public class WorldManagement : MonoBehaviour
     //Variables
     //Enviar a script CONTADOR
     Texto_Contador texto_Contador;
-
+    public int estado_mundo;
     
     //Trobem el Contador
     void Start()
     {
         texto_Contador = GetComponent<Texto_Contador>();
+        estado_mundo = texto_Contador.estatus_mundo();
         //Actualizamos
         recibir_puntos(0);
     }
@@ -20,6 +21,10 @@ public class WorldManagement : MonoBehaviour
     {
         texto_Contador.CambiarContador(points);
         Debug.Log("S'han enviat al Contador: " + points);
+    }
+    private void FixedUpdate()
+    {
+        estado_mundo = texto_Contador.estatus_mundo();
     }
 
     private void Update()
