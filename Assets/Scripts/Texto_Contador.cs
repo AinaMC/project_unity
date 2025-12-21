@@ -4,7 +4,7 @@ using UnityEngine;
 public class Texto_Contador : MonoBehaviour
 {
     [SerializeField] TMP_Text texto;
-    int puntos_globales = 50;
+    public int puntos_globales = 50;
 
     void Start()
     {
