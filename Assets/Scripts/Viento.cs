@@ -5,7 +5,7 @@ using System.Collections;
 public class Viento : MonoBehaviour
 {
     public player_movement mov;
-    //public WorldManagement estado;
+    public WorldManagement estado;
     public Texto_Contador mundo;
 
     //Viento a Favor o en Contra
@@ -27,25 +27,25 @@ public class Viento : MonoBehaviour
    
         //Viento
         //Utopico (favor) --> 1-20
-        if (mundo.estatus_mundo() >= 1 && mundo.estatus_mundo() <= 20)
+        if (estado.estatus_mundo() >= 1 && estado.estatus_mundo() <= 20)
         {
             viento_favor(main);
             transf.rotation = Quaternion.Euler(0, 180, 0);
-            Debug.Log("Viento a favor activado");
+            //Debug.Log("Viento a favor activado");
         }
         //Distopico (en contra) --> 80-100
-        else if (mundo.estatus_mundo() >= 80 && mundo.estatus_mundo() <= 100)
+        else if (estado.estatus_mundo() >= 80 && estado.estatus_mundo() <= 100)
         {
             viento_contra(main);
             transf.rotation = Quaternion.Euler(0, 0, 0);
-            Debug.Log("Viento en contra activado");
+            //Debug.Log("Viento en contra activado");
         }
         else
         {
             mov.cambiar_vel(300f);
             transf.rotation = Quaternion.Euler(0, 180, 0);
             main.startLifetime = 0.0001f;
-            Debug.Log("No hay viento, todo normal");
+            //Debug.Log("No hay viento, todo normal");
         }
     }
 

@@ -4,31 +4,23 @@ using UnityEngine;
 public class Texto_Contador : MonoBehaviour
 {
     [SerializeField] TMP_Text texto;
-    int puntos_globales = 50;
 
     void Start()
     {
     }
-   public void CambiarContador(int points)
-    {        
-        //Depende de que tengamos que hacer 
-        puntos_globales = puntos_globales + points;
-        texto.text = "Contador: " + puntos_globales;
 
-        if (puntos_globales >= 100 )
-        {
-            puntos_globales = 100;
-            texto.text = "Contador: " + puntos_globales;
-        }
-        else if (puntos_globales < 1)
-        {
-            puntos_globales = 1;
-            texto.text = "Contador: " + puntos_globales;
-        }
-    }
-
-    public int estatus_mundo()
+    public void CambiarContador(int estado_Actual, int points)
     {
-        return puntos_globales;
+        int total = estado_Actual + points;
+        texto.text = "Contador: " + total;
+
+        if (points >= 100)
+        {
+            texto.text = "Contador: " + total;
+        }
+        else if (points < 1)
+        {
+            texto.text = "Contador: " + total;
+        }
     }
 }
