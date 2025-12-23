@@ -5,7 +5,7 @@ using System.Collections;
 public class Viento : MonoBehaviour
 {
     public player_movement mov;
-    public WorldManagement estado;
+    //public WorldManagement estado;
     public Texto_Contador mundo;
 
     //Viento a Favor o en Contra
