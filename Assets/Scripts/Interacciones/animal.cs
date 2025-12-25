@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -13,9 +12,35 @@ public class animal : MonoBehaviour
     [SerializeField] TMP_Text opcion_mala;
     [SerializeField] TMP_Text opcion_buena;
     //Variables
-    public float targetAlpha = 1f;
-    public float duration = 1f;
-    private float startTime;
+    [Range(0, 1)]
+    public float alpha = 1f;
+
+    public float Alpha
+    {
+        get => alpha;
+        set
+        {
+            alpha = value;
+
+            grupo.alpha = alpha; // setup CanvasGroup Alpha
+
+            //SetMaterialsAlpha(materials);
+
+            //foreach (var _meshRenderer in MeshRenderers) // for all mesh renderer materials
+            //{
+            //    if (!_meshRenderer) continue;
+            //    SetMaterialsAlpha(_meshRenderer.materials);
+            //}
+
+            //foreach (var _sprite in Sprites) // setup sprites
+            //{
+            //    if (!_sprite) continue;
+            //    var col = _sprite.color;
+            //    col.a = alpha;
+            //    _sprite.color = col;
+            //}
+        }
+    }
 
     void Start()
     {
