@@ -1043,16 +1043,16 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.95, y: 1, z: 4.45}
+  m_Size: {x: 6.19, y: 1, z: 7.13}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1190197681
 MeshRenderer:
@@ -1134,11 +1134,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c42359cab2f0ab8438b25d43c7252361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas_interaccion: {fileID: 0}
-  grup: {fileID: 0}
-  opcion_mala: {fileID: 0}
-  opcion_buena: {fileID: 0}
-  alpha: 1
+  opcion_mala: {fileID: 337549888}
+  opcion_buena: {fileID: 1591057695}
+  centro: {fileID: 1331236992}
+  control_mundo: {fileID: 214902139}
 --- !u!1 &1261030335
 GameObject:
   m_ObjectHideFlags: 0
@@ -1438,11 +1437,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8657e720947289f4e8f4cfe001873476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas_interaccion: {fileID: 1331236988}
   grup: {fileID: 1331236991}
   opcion_mala: {fileID: 337549888}
   opcion_buena: {fileID: 1591057695}
-  alpha: 1
 --- !u!1 &1529139531
 GameObject:
   m_ObjectHideFlags: 0

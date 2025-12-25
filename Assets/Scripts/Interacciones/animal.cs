@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,7 +7,9 @@ public class animal : MonoBehaviour
     //Textos
     [SerializeField] TMP_Text opcion_mala;
     [SerializeField] TMP_Text opcion_buena;
-
+    //Centro Interacción
+    public centro_interaccion centro;
+    public WorldManagement control_mundo;
 
     void Start()
     {
@@ -19,12 +20,47 @@ public class animal : MonoBehaviour
 
     void Update()
     {    }
+    //Entrar en la zona
     void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Player ha entrado en Zona");
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Player ha entrado en Zona");
+            //OPACIDAD
+            centro.opacidad(1f);
+        }
+    }
+    //Permanecer en la zona
+    void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            //canvas_interaccion.alpha;
-            //popupWindow.SetActive(true);
+            if (Input.GetKey("l"))
+            {
+                Debug.Log("Opcion Mala");
+                control_mundo.recibir_puntos(-10);
+            }
+        if (Input.GetKey("k"))
+        {
+            Debug.Log("Opcion Buena");
+            control_mundo.recibir_puntos(10);
+        }
+        }
+
+    }
+    //Salir de la zona
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Player ha salido de la Zona");
+            //OPACIDAD
+            centro.opacidad(0f);
+            opcion_buena.text = "Vacio";
+            opcion_mala.text = "Vacio";
+            //Tmb escribir si pulsa las opciones
+            //if OnClick.KeyCode.L { enviar -10 }
         }
     }
 }

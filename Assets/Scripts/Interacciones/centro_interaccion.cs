@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Diagnostics;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,9 +13,7 @@ public class centro_interaccion : MonoBehaviour
     //Textos
     [SerializeField] TMP_Text opcion_mala;
     [SerializeField] TMP_Text opcion_buena;
-    //Variables
-    [Range(0, 1)]
-    public float alpha = 1f;
+
 
     void Start()
     {
@@ -24,9 +21,8 @@ public class centro_interaccion : MonoBehaviour
         //canvas_interaccion = GetComponent<Canvas>();
         grup = GetComponent<CanvasGroup>();
         //Seteamos los textos
-        opcion_buena.text = "Texto Bueno";
-        opcion_mala.text = "Texto Malo";
-        Debug.Log("Se ha inicializado las opciones de interacción");
+        text_editor();
+        opacidad(0f);
     }
 
     // Update is called once per frame
@@ -48,7 +44,7 @@ public class centro_interaccion : MonoBehaviour
     {
         opcion_buena.text = "Texto Bueno";
         opcion_mala.text = "Texto Malo";
-        Debug.Log("Nuevas interacciones actualizadas");
+        Debug.Log("Interacciones actualizadas");
     }
 
     //Aqui se reciben las nuevas opacidades
@@ -56,6 +52,6 @@ public class centro_interaccion : MonoBehaviour
     {
         //float t = (Time.time - startTime) / duration;
         //canvasGroup.alpha = Mathf.Lerp(0f, targetAlpha, t);
-        grup.alpha = Mathf.Lerp(0f, 0, 5f);
+        grup.alpha = Mathf.Lerp(0f, nueva_opacidad, 5f);
     }
 }

@@ -12,22 +12,22 @@ public class WorldManagement : MonoBehaviour
     {
         mundo = GetComponent<Texto_Contador>();
         //Actualizamos
-        recibir_puntos(estado_mundo);
+        recibir_puntos(0);
     }
 
     private void Update()
     {
-        //Esquerra
-        if(Input.GetMouseButton(0))
-        {
-            recibir_puntos(-1);
+        ////Esquerra
+        //if(Input.GetMouseButton(0))
+        //{
+        //    recibir_puntos(-1);
 
-        }
-        //Dreta
-        if (Input.GetMouseButton(1))
-        {
-            recibir_puntos(1);
-        }
+        //}
+        ////Dreta
+        //if (Input.GetMouseButton(1))
+        //{
+        //    recibir_puntos(1);
+        //}
     }    
     //AQUI ENVIAR TODOS LOS PUNTOS DESDE CUALQUIER SCRIPT
     //Aquí llegaran los nuevos puntos de otros scripts y de aqui cambia el contador
