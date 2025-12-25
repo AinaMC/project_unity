@@ -5,7 +5,7 @@ public class salud_personaje : MonoBehaviour
 {
     [SerializeField] TMP_Text vida;
     //Escribir como depende del mundo se cura mas o menos
-
+    
     int puntos_salud = 25;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,11 +16,6 @@ public class salud_personaje : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void curarse(int pts)
     {
         //Depende de que tengamos que hacer 
