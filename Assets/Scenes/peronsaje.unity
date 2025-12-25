@@ -1025,6 +1025,7 @@ GameObject:
   - component: {fileID: 1190197682}
   - component: {fileID: 1190197681}
   - component: {fileID: 1190197680}
+  - component: {fileID: 1190197684}
   m_Layer: 0
   m_Name: Perro
   m_TagString: Untagged
@@ -1121,6 +1122,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1190197684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190197678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c42359cab2f0ab8438b25d43c7252361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas_interaccion: {fileID: 0}
+  grup: {fileID: 0}
+  opcion_mala: {fileID: 0}
+  opcion_buena: {fileID: 0}
+  alpha: 1
 --- !u!1 &1261030335
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,7 +1322,7 @@ GameObject:
   - component: {fileID: 1331236991}
   - component: {fileID: 1331236987}
   - component: {fileID: 1331236986}
-  - component: {fileID: 1331236990}
+  - component: {fileID: 1331236992}
   m_Layer: 5
   m_Name: Canvas_Interaccion
   m_TagString: Untagged
@@ -1396,20 +1414,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1331236990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1331236985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c42359cab2f0ab8438b25d43c7252361, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  opcion_mala: {fileID: 337549888}
-  opcion_buena: {fileID: 1591057695}
 --- !u!225 &1331236991
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1422,6 +1426,23 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1331236992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331236985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8657e720947289f4e8f4cfe001873476, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas_interaccion: {fileID: 1331236988}
+  grup: {fileID: 1331236991}
+  opcion_mala: {fileID: 337549888}
+  opcion_buena: {fileID: 1591057695}
+  alpha: 1
 --- !u!1 &1529139531
 GameObject:
   m_ObjectHideFlags: 0

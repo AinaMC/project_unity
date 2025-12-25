@@ -2,8 +2,10 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class animal : MonoBehaviour
+//El objetivo de este script es:
+// 1 - RECIBIR TEXTOS de las opciones de interacción de los diferentes colliders
+// 2 - AJUSTAR OPACIDAD depeniendo si entra o sale del collider del obj
+public class centro_interaccion : MonoBehaviour
 {
     //Canvas
     public Canvas canvas_interaccion;
@@ -44,12 +46,5 @@ public class animal : MonoBehaviour
         //    canvasGroup.alpha = targetAlpha;
         //}
     }
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            //canvas_interaccion.alpha;
-            //popupWindow.SetActive(true);
-        }
-    }
+
 }
