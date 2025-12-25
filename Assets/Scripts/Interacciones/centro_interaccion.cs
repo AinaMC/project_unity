@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,7 +9,7 @@ using UnityEngine.UI;
 public class centro_interaccion : MonoBehaviour
 {
     //Canvas
-    public Canvas canvas_interaccion;
+    //public Canvas canvas_interaccion;
     public CanvasGroup grup;
     //Textos
     [SerializeField] TMP_Text opcion_mala;
@@ -20,17 +21,12 @@ public class centro_interaccion : MonoBehaviour
     void Start()
     {
         //Seteamos el canva
-        canvas_interaccion = GetComponent<Canvas>();
+        //canvas_interaccion = GetComponent<Canvas>();
         grup = GetComponent<CanvasGroup>();
         //Seteamos los textos
-        opcion_buena.text = "Acariciar";
-        opcion_mala.text = "Patear";
-        Debug.Log("S'ha inicializado las opciones de interacción");
-
-        //TOCAR OPACITAT DEL POPUP
-        //    float t = (Time.time - startTime) / duration;
-        //    canvasGroup.alpha = Mathf.Lerp(0f, targetAlpha, t);
-        grup.alpha = Mathf.Lerp(0f, 0, 5f);
+        opcion_buena.text = "Texto Bueno";
+        opcion_mala.text = "Texto Malo";
+        Debug.Log("Se ha inicializado las opciones de interacción");
     }
 
     // Update is called once per frame
@@ -47,4 +43,19 @@ public class centro_interaccion : MonoBehaviour
         //}
     }
 
+    //Tocar los Textos
+    public void text_editor()
+    {
+        opcion_buena.text = "Texto Bueno";
+        opcion_mala.text = "Texto Malo";
+        Debug.Log("Nuevas interacciones actualizadas");
+    }
+
+    //Aqui se reciben las nuevas opacidades
+    public void opacidad(float nueva_opacidad)
+    {
+        //float t = (Time.time - startTime) / duration;
+        //canvasGroup.alpha = Mathf.Lerp(0f, targetAlpha, t);
+        grup.alpha = Mathf.Lerp(0f, 0, 5f);
+    }
 }
