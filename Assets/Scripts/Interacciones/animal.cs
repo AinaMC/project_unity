@@ -57,8 +57,6 @@ public class animal : MonoBehaviour
             Debug.Log("Player ha salido de la Zona");
             //OPACIDAD
             centro.opacidad(0f);
-            opcion_buena.text = "Vacio";
-            opcion_mala.text = "Vacio";
             //Tmb escribir si pulsa las opciones
             //if OnClick.KeyCode.L { enviar -10 }
         }
