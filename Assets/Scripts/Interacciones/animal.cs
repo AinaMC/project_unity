@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+//Animales --> [+/- 10 puntos]
 public class animal : MonoBehaviour
 {
     //Textos
@@ -18,8 +18,14 @@ public class animal : MonoBehaviour
         opcion_mala.text = "Patear";
     }
 
-    void Update()
-    {    }
+    public void texto()
+    {
+        //Seteamos los textos
+        opcion_buena.text = "Acariciar";
+        opcion_mala.text = "Patear";
+    }
+
+
     //Entrar en la zona
     void OnTriggerEnter(Collider other)
     {
