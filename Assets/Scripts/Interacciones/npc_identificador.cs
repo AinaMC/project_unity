@@ -4,8 +4,8 @@ public class npc_identificador : MonoBehaviour
 {
     //Centro Interacción
     public centro_interaccion centro;
-    public animal animal;
-    public comerciante comericiante;
+    public animal a;
+    public comerciante c;
 
     //Entrar en la zona
     void OnTriggerEnter(Collider other)
@@ -16,12 +16,12 @@ public class npc_identificador : MonoBehaviour
             centro.opacidad(1f);
             if (other.CompareTag("Animal"))
             {                
-                animal.texto();
+                a.texto();
                 Debug.Log("NPC ANIMAL");
             }
-            else if (other.CompareTag("Comerciante"))
+            if (other.CompareTag("Comerciante"))
             {
-                animal.texto();
+                c.texto();
                 Debug.Log("NPC COMERCIANTE");
             }
         }
@@ -29,23 +29,22 @@ public class npc_identificador : MonoBehaviour
     //Permanecer en la zona
     void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
+
             if (Input.GetKey("l"))
             {
                 if (other.CompareTag("Comerciante"))
                 {
-                    comerciante.accion_mala();
+                    c.accion_mala();
                 }
             }
             if (Input.GetKey("k"))
             {
                 if (other.CompareTag("Comerciante"))
                 {
-                    comerciante.accion_buena();
+                    c.accion_buena();
                 }
             }
-        }
+       
 
     }
     //Salir de la zona

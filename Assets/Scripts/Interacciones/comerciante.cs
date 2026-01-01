@@ -11,6 +11,12 @@ public class comerciante : MonoBehaviour
     public centro_interaccion centro;
     public WorldManagement control_mundo;
 
+    void Start()
+    {
+        //Seteamos los textos
+        opcion_buena.text = "Reirse de su broma";
+        opcion_mala.text = "Pegarle con un palo";
+    }
     public void texto()
     {
         //Seteamos los textos
