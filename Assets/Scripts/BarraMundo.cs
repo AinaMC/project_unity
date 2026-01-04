@@ -15,7 +15,7 @@ public class BarraMundo : MonoBehaviour
         mundoActual = mundo.estatus_mundo();
         barra_mundo.fillAmount = mundoActual / 100f;
     }
-    void Update()
+    void FixedUpdate()
     {
         mundoActual = mundo.estatus_mundo();
 

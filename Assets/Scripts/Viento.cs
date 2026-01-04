@@ -31,21 +31,21 @@ public class Viento : MonoBehaviour
         {
             viento_favor(main);
             transf.rotation = Quaternion.Euler(0, 180, 0);
-            //Debug.Log("Viento a favor activado");
+
         }
         //Distopico (en contra) --> 80-100
         else if (estado.estatus_mundo() >= 80 && estado.estatus_mundo() <= 100)
         {
             viento_contra(main);
             transf.rotation = Quaternion.Euler(0, 0, 0);
-            //Debug.Log("Viento en contra activado");
+
         }
         else
         {
-            mov.cambiar_vel(300f);
+            mov.cambiar_vel(7f);
             transf.rotation = Quaternion.Euler(0, 180, 0);
             main.startLifetime = 0.0001f;
-            //Debug.Log("No hay viento, todo normal");
+
         }
     }
 
@@ -54,12 +54,12 @@ public class Viento : MonoBehaviour
     {            
         main.startLifetime = 5f;
         main.startSpeed = 10f;
-        mov.cambiar_vel(600f);
+        mov.cambiar_vel(60f);
     }
     public void viento_contra(ParticleSystem.MainModule main)
     {
         main.startLifetime = 5f;
         main.startSpeed = 30f;
-        mov.cambiar_vel(100f);
+        mov.cambiar_vel(1f);
     }
 }
