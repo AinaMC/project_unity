@@ -8,10 +8,15 @@ public class centro_interaccion : MonoBehaviour
 {
     //Canvas
     public CanvasGroup grup;
-
+    //Textos
+    [SerializeField] TMP_Text opcion_mala;
+    [SerializeField] TMP_Text opcion_buena;
 
     void Start()
     {
+        //Seteamos los textos
+        opcion_buena.text = "Utopia";
+        opcion_mala.text = "Distopia";
         //Seteamos el canva
         grup = GetComponent<CanvasGroup>();
         //Seteamos  opacidad
