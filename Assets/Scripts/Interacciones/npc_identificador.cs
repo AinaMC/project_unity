@@ -1,4 +1,3 @@
-
 using UnityEngine;
 //Este script hace:
 //IDENTIFICAR NPC y redirigirlo a su script
@@ -16,7 +15,7 @@ public class npc_identificador : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player ha entrado en Zona");
+            //Debug.Log("Player ha entrado en Zona");
             centro.opacidad(1f);
             if (NPC_actual.CompareTag("Animal"))
             {
@@ -35,18 +34,38 @@ public class npc_identificador : MonoBehaviour
     void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
-        { 
-        //Animal
-        if (NPC_actual.CompareTag("Animal"))
         {
-            if (Input.GetKey("l"))
+            //Accion Mala
+            if (Input.GetKeyDown("l"))
             {
-                a.accion_mala();
+                //Animal
+                if (NPC_actual.CompareTag("Animal"))
+                {
+                    a.accion_mala();
+                }
+                //Comerciante
+                if (NPC_actual.CompareTag("Comerciante"))
+                {
+                    c.accion_mala();
+                }
+                Debug.Log("Opcion Mala");
             }
-            if (Input.GetKey("k"))
+            //Accion Buena
+            if (Input.GetKeyDown("k"))
             {
-                a.accion_buena();
+                //Animal
+                if (NPC_actual.CompareTag("Animal"))
+                {
+                    a.accion_buena();
+                }
+                //Comerciante
+                if (NPC_actual.CompareTag("Comerciante"))
+                {
+                    c.accion_buena();
+                }
+                Debug.Log("Opcion Buena");
             }
+
         }
         //Comerciante
         if (NPC_actual.CompareTag("Comerciante"))
@@ -54,13 +73,15 @@ public class npc_identificador : MonoBehaviour
             if (Input.GetKey("l"))
             {
                 c.accion_mala();
-            }
-            if (Input.GetKey("k"))
+                    
+                }
+            else if (Input.GetKey("k"))
             {
                 c.accion_buena();
-            }
+                  
+                }
         }
-        }
+        
     }
     //Salir de la zona
     void OnTriggerExit(Collider other)
@@ -72,5 +93,4 @@ public class npc_identificador : MonoBehaviour
                 centro.opacidad(0f);
         }
     }
-    
-}
+ }

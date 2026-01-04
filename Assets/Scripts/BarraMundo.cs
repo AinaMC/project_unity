@@ -2,22 +2,23 @@ using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BarraDeVida : MonoBehaviour
+public class BarraMundo : MonoBehaviour
 {
     public WorldManagement mundo;
     public Image barra_mundo;
 
      float mundoActual;
-     float mundoMax = 100;
+     //float mundoMax = 100;
 
-    void start()
+    void Start()
     {
-        mundoActual = (float)mundo.estatus_mundo();
+        mundoActual = mundo.estatus_mundo();
+        barra_mundo.fillAmount = mundoActual / 100f;
     }
     void Update()
     {
-        mundoActual = (float)mundo.estatus_mundo();
+        mundoActual = mundo.estatus_mundo();
 
-        barra_mundo.fillAmount = mundoActual / mundoMax;
+        barra_mundo.fillAmount = mundoActual / 100f;
     }
 }
