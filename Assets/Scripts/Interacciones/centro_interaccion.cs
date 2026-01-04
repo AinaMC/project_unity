@@ -22,8 +22,6 @@ public class centro_interaccion : MonoBehaviour
     //Aqui se reciben las nuevas opacidades
     public void opacidad(float nueva_opacidad)
     {
-        //float t = (Time.time - startTime) / duration;
-        //canvasGroup.alpha = Mathf.Lerp(0f, targetAlpha, t);
         grup.alpha = Mathf.Lerp(0f, nueva_opacidad, 5f);
     }
 }

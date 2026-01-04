@@ -63,8 +63,6 @@ public class animal : MonoBehaviour
             Debug.Log("Player ha salido de la Zona");
             //OPACIDAD
             centro.opacidad(0f);
-            //Tmb escribir si pulsa las opciones
-            //if OnClick.KeyCode.L { enviar -10 }
         }
     }
 }
