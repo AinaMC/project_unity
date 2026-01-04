@@ -33,10 +33,9 @@ public class npc_identificador : MonoBehaviour
     //Permanecer en la zona
     void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
+
             //Accion Mala
-            if (Input.GetKeyDown("l"))
+            if (Input.GetKey(KeyCode.L))
             {
                 //Animal
                 if (NPC_actual.CompareTag("Animal"))
@@ -51,7 +50,7 @@ public class npc_identificador : MonoBehaviour
                 Debug.Log("Opcion Mala");
             }
             //Accion Buena
-            if (Input.GetKeyDown("k"))
+            if (Input.GetKey(KeyCode.K))
             {
                 //Animal
                 if (NPC_actual.CompareTag("Animal"))
@@ -66,22 +65,7 @@ public class npc_identificador : MonoBehaviour
                 Debug.Log("Opcion Buena");
             }
 
-        }
-        //Comerciante
-        if (NPC_actual.CompareTag("Comerciante"))
-        {
-            if (Input.GetKey("l"))
-            {
-                c.accion_mala();
-                    
-                }
-            else if (Input.GetKey("k"))
-            {
-                c.accion_buena();
-                  
-                }
-        }
-        
+       
     }
     //Salir de la zona
     void OnTriggerExit(Collider other)

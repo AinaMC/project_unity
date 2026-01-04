@@ -11,7 +11,7 @@ public class WorldManagement : MonoBehaviour
     void Start()
     {
         //Actualizamos
-        recibir_puntos(0);
+        recibir_puntos(0f);
     }
 
     //AQUI ENVIAR TODOS LOS PUNTOS DESDE CUALQUIER SCRIPT

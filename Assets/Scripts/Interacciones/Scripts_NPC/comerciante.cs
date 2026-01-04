@@ -21,12 +21,12 @@ public class comerciante : MonoBehaviour
     public void accion_buena()
     {
         //Debug.Log("Opcion Buena");
-        control_mundo.recibir_puntos(15f);
+        control_mundo.recibir_puntos(1.5f);
     }
     public void accion_mala()
     {
          //Debug.Log("Opcion Mala");
-         control_mundo.recibir_puntos(-20f);
+         control_mundo.recibir_puntos(-2.0f);
     }
 
 

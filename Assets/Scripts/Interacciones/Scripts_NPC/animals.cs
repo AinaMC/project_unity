@@ -22,11 +22,11 @@ public class animals : MonoBehaviour
     public void accion_buena()
     {
         //Debug.Log("Opcion Buena");
-        control_mundo.recibir_puntos(10f);
+        control_mundo.recibir_puntos(1.5f);
     }
     public void accion_mala()
     {
         //Debug.Log("Opcion Mala");
-        control_mundo.recibir_puntos(-10f);
+        control_mundo.recibir_puntos(-1.5f);
     }
 }
