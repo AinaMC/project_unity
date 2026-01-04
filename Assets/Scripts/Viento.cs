@@ -38,7 +38,7 @@ public class Viento : MonoBehaviour
         else
         {
             ex.enabled = false;
-            mov.cambiar_vel(300f);
+            mov.cambiar_vel(7f);
         }
     }
 
@@ -48,12 +48,12 @@ public class Viento : MonoBehaviour
         ex.enabled = true;
         ex.multiplier = 0.1f;
 
-        mov.cambiar_vel(1000f);
+        mov.cambiar_vel(10f);
     }
     public void viento_contra(ParticleSystem.ExternalForcesModule ex)
     {
         ex.enabled = true;
         ex.multiplier = 0.1f;
-        mov.cambiar_vel(50f);
+        mov.cambiar_vel(4f);
     }
 }
