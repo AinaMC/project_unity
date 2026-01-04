@@ -5,55 +5,54 @@ using System.Collections;
 public class Viento : MonoBehaviour
 {
     public player_movement mov;
-    public Texto_Contador mundo;
-
+    public WorldManagement estado;
+    //public Transform wind;
+    
     //Viento a Favor o en Contra
     //Neutral --> 21-79
     //Utopico (favor) --> 1-20
     //Distopico (en contra) --> 80-100
 
-    void Start()
-    {
-
-    }
-
 
     void FixedUpdate()
     {        
         ParticleSystem ps = GetComponent<ParticleSystem>();  
-        var ex = ps.externalForces;
-        ex.enabled = false;
+        //var ex = ps.externalForces;
+        var main = ps.main;
+        var transf = ps.transform;
 
         //Viento
         //Utopico (favor) --> 1-20
-        if (mundo.estatus_mundo() >= 1 && mundo.estatus_mundo() <= 20)
+        if (estado.estatus_mundo() >= 80 && estado.estatus_mundo() <= 100)
         {
-            viento_favor(ex);
+            viento_favor(main);
+            //transf.rotation = Quaternion.Euler(0, 180, 0);
+
         }
         //Distopico (en contra) --> 80-100
-        else if (mundo.estatus_mundo() >= 80 && mundo.estatus_mundo() <= 100)
+        else if (estado.estatus_mundo() >= 1 && estado.estatus_mundo() <= 20)
         {
-            viento_contra(ex);
+            viento_contra(main);
         }
         else
         {
-            ex.enabled = false;
-            mov.cambiar_vel(300f);
+            mov.cambiar_vel(7f);
+            main.startLifetime = 0.0001f;
+            //wind.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 
     //Activar/Desactivar sistema particules
-    public void viento_favor(ParticleSystem.ExternalForcesModule ex)
+    public void viento_favor(ParticleSystem.MainModule main)
     {            
-        ex.enabled = true;
-        ex.multiplier = 0.1f;
-
-        mov.cambiar_vel(1000f);
+        main.startLifetime = 5f;
+        main.startSpeed = 55f;
+        mov.cambiar_vel(6f);
     }
-    public void viento_contra(ParticleSystem.ExternalForcesModule ex)
+    public void viento_contra(ParticleSystem.MainModule main)
     {
-        ex.enabled = true;
-        ex.multiplier = 0.1f;
-        mov.cambiar_vel(50f);
+        main.startLifetime = 5f;
+        main.startSpeed = 5f;
+        mov.cambiar_vel(1f);
     }
 }
