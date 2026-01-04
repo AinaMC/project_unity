@@ -1,6 +1,8 @@
 
 using UnityEngine;
-
+//Este script hace:
+//IDENTIFICAR NPC y redirigirlo a su script
+//Asi solo hay 1 solo script para todas las interacciones
 public class npc_identificador : MonoBehaviour
 {
     public GameObject NPC_actual;
@@ -32,6 +34,8 @@ public class npc_identificador : MonoBehaviour
     //Permanecer en la zona
     void OnTriggerStay(Collider other)
     {
+        if (other.CompareTag("Player"))
+        { 
         //Animal
         if (NPC_actual.CompareTag("Animal"))
         {
@@ -55,6 +59,7 @@ public class npc_identificador : MonoBehaviour
             {
                 c.accion_buena();
             }
+        }
         }
     }
     //Salir de la zona

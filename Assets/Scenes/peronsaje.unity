@@ -1228,7 +1228,7 @@ GameObject:
   - component: {fileID: 1042575409}
   - component: {fileID: 1042575408}
   m_Layer: 5
-  m_Name: BarraDeVida
+  m_Name: BarraMundo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1266,7 +1266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5113207, g: 1, b: 0.96672446, a: 1}
+  m_Color: {r: 0.51886785, g: 1, b: 0.52402943, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2367,7 +2367,7 @@ GameObject:
   - component: {fileID: 1871302722}
   - component: {fileID: 1871302721}
   m_Layer: 5
-  m_Name: AzulFondo
+  m_Name: RojoFondo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
