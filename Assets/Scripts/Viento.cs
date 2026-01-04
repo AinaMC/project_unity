@@ -6,7 +6,6 @@ public class Viento : MonoBehaviour
 {
     public player_movement mov;
     public WorldManagement estado;
-    public Texto_Contador mundo;
 
     //Viento a Favor o en Contra
     //Neutral --> 21-79
@@ -27,14 +26,14 @@ public class Viento : MonoBehaviour
    
         //Viento
         //Utopico (favor) --> 1-20
-        if (estado.estatus_mundo() >= 1 && estado.estatus_mundo() <= 20)
+        if (estado.estatus_mundo() >= 80 && estado.estatus_mundo() <= 100)
         {
             viento_favor(main);
             transf.rotation = Quaternion.Euler(0, 180, 0);
 
         }
         //Distopico (en contra) --> 80-100
-        else if (estado.estatus_mundo() >= 80 && estado.estatus_mundo() <= 100)
+        else if (estado.estatus_mundo() >= 1 && estado.estatus_mundo() <= 20)
         {
             viento_contra(main);
             transf.rotation = Quaternion.Euler(0, 0, 0);
@@ -54,7 +53,7 @@ public class Viento : MonoBehaviour
     {            
         main.startLifetime = 5f;
         main.startSpeed = 10f;
-        mov.cambiar_vel(60f);
+        mov.cambiar_vel(6f);
     }
     public void viento_contra(ParticleSystem.MainModule main)
     {
