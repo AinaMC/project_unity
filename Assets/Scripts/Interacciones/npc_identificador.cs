@@ -12,18 +12,18 @@ public class npc_identificador : MonoBehaviour
     public comerciante c;
 
     //Entrar en la zona
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             //Debug.Log("Player ha entrado en Zona");
             centro.opacidad(1f);
-            if (NPC_actual.CompareTag("Animal"))
+            if (NPC_actual.gameObject.CompareTag("Animal"))
             {
                 a.texto();
                 Debug.Log("NPC ANIMAL");
             }
-            if (NPC_actual.CompareTag("Comerciante"))
+            if (NPC_actual.gameObject.CompareTag("Comerciante"))
             {
                 c.texto();
                 Debug.Log("NPC COMERCIANTE");
@@ -32,19 +32,19 @@ public class npc_identificador : MonoBehaviour
         }
     }
     //Permanecer en la zona
-    void OnTriggerStay(Collider other)
+    void OnCollisionStay(Collision other)
     {
 
             //Accion Mala
             if (Input.GetKey(KeyCode.L))
             {
                 //Animal
-                if (NPC_actual.CompareTag("Animal"))
+                if (NPC_actual.gameObject.CompareTag("Animal"))
                 {
                     a.accion_mala();
                 }
                 //Comerciante
-                if (NPC_actual.CompareTag("Comerciante"))
+                if (NPC_actual.gameObject.CompareTag("Comerciante"))
                 {
                     c.accion_mala();
                 }
@@ -56,12 +56,12 @@ public class npc_identificador : MonoBehaviour
             if (Input.GetKey(KeyCode.K))
             {
                 //Animal
-                if (NPC_actual.CompareTag("Animal"))
+                if (NPC_actual.gameObject.CompareTag("Animal"))
                 {
                     a.accion_buena();
                 }
                 //Comerciante
-                if (NPC_actual.CompareTag("Comerciante"))
+                if (NPC_actual.gameObject.CompareTag("Comerciante"))
                 {
                     c.accion_buena();
                 }
@@ -71,9 +71,9 @@ public class npc_identificador : MonoBehaviour
        
     }
     //Salir de la zona
-    void OnTriggerExit(Collider other)
+    void OnCollisionExit(Collision other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
                 Debug.Log("Player ha salido de la Zona");
                 //OPACIDAD
