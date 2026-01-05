@@ -7,6 +7,7 @@ public class npc_identificador : MonoBehaviour
     public GameObject NPC_actual;
     //Centro Interacción
     public centro_interaccion centro;
+    
     public animals a;
     public comerciante c;
 
@@ -49,6 +50,8 @@ public class npc_identificador : MonoBehaviour
                 }
                 Debug.Log("Opcion Mala");
             }
+
+
             //Accion Buena
             if (Input.GetKey(KeyCode.K))
             {
