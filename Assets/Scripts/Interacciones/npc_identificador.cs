@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using UnityEngine;
 //Este script hace:
 //IDENTIFICAR NPC y redirigirlo a su script
@@ -10,6 +11,7 @@ public class npc_identificador : MonoBehaviour
     
     public animals a;
     public comerciante c;
+    public arma arma;
 
     //Entrar en la zona
     void OnCollisionEnter(Collision other)
@@ -28,7 +30,12 @@ public class npc_identificador : MonoBehaviour
                 c.texto();
                 Debug.Log("NPC COMERCIANTE");
             }
-  
+            if (NPC_actual.gameObject.CompareTag("Arma"))
+            {
+                arma.texto();
+                Debug.Log("NPC COMERCIANTE");
+            }
+
         }
     }
     //Permanecer en la zona
@@ -48,7 +55,13 @@ public class npc_identificador : MonoBehaviour
                 {
                     c.accion_mala();
                 }
-                Debug.Log("Opcion Mala");
+                //Arma
+                if (NPC_actual.gameObject.CompareTag("Arma"))
+                {
+                    arma.accion_mala();
+                    //Destroy(NPC_actual);
+                }
+            Debug.Log("Opcion Mala");
             }
 
 
@@ -65,7 +78,13 @@ public class npc_identificador : MonoBehaviour
                 {
                     c.accion_buena();
                 }
-                Debug.Log("Opcion Buena");
+                //Arma
+                if (NPC_actual.gameObject.CompareTag("Arma"))
+                {
+                    arma.accion_buena();
+                    Destroy(NPC_actual);
+                }
+            Debug.Log("Opcion Buena");
             }
 
        
