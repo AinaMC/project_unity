@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &662795530198365260
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6965817461250414147}
+  - component: {fileID: 607211167216199875}
+  - component: {fileID: 6446262352059979095}
+  - component: {fileID: 8571580985569113363}
+  m_Layer: 0
+  m_Name: NPC_scripts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6965817461250414147
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662795530198365260}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9635.848, y: 21.099894, z: 15241.056}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &607211167216199875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662795530198365260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c4e7e157dae5014f8ad245eeb9c191b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  opcion_mala: {fileID: 0}
+  opcion_buena: {fileID: 0}
+  centro: {fileID: 0}
+  control_mundo: {fileID: 0}
+--- !u!114 &6446262352059979095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662795530198365260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ec7a21804b62a548a40f8df577fbe0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mala: {fileID: 0}
+  buena: {fileID: 0}
+  centro: {fileID: 0}
+  control_mundo: {fileID: 0}
+--- !u!114 &8571580985569113363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662795530198365260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc95104be0d78be458fecd2af5262ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  opcion_mala: {fileID: 0}
+  opcion_buena: {fileID: 0}
+  centro: {fileID: 0}
+  control_mundo: {fileID: 0}
