@@ -24,7 +24,6 @@ public class Tienda_Collider : MonoBehaviour
         {
             //Debug.Log("El jugador ha entrado en el trigger.");
             vida.curarse(10);
-
         }
     }
 }

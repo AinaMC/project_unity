@@ -4984,7 +4984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mov: {fileID: 7838290740440585848}
-  mundo: {fileID: 0}
+  estado: {fileID: 0}
 --- !u!1001 &7449550989158471204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5084,12 +5084,6 @@ PrefabInstance:
       addedObject: {fileID: 66460961811220642}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0550f29db805233429996d979acd960d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8905421246188096730}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0550f29db805233429996d979acd960d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2495322170768622565}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0550f29db805233429996d979acd960d, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 7838290740440585848}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0550f29db805233429996d979acd960d, type: 3}
       insertIndex: -1
@@ -5137,32 +5131,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &8905421246188096730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7756173783689227125}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86ba3b5fa48356f40b3832857492109e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 4.2
---- !u!114 &2495322170768622565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7756173783689227125}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9689d0821db0a149a01385f7aca1786, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MoveInput: {x: 0, y: 0, z: 0}
 --- !u!114 &7838290740440585848
 MonoBehaviour:
   m_ObjectHideFlags: 0

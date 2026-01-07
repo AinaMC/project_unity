@@ -1,41 +1,40 @@
 using UnityEngine;
 
-
+//Utopia = 100
+//Distopia = 1
 public class WorldManagement : MonoBehaviour
 {
     //Variables
-    //Enviar a script CONTADOR
-    Texto_Contador texto_Contador;
+    private float estado_mundo = 50f;
 
-    
     //Trobem el Contador
     void Start()
     {
-        texto_Contador = GetComponent<Texto_Contador>();
         //Actualizamos
-        recibir_puntos(0);
+        recibir_puntos(0f);
     }
-    //Recibir cambios de puntos por interacción y los mandamos script CONTADOR
-    public void recibir_puntos(int points)
+
+    //AQUI ENVIAR TODOS LOS PUNTOS DESDE CUALQUIER SCRIPT
+    //Aquí llegaran los nuevos puntos de otros scripts y de aqui cambia el contador
+    public void recibir_puntos(float points)
     {
-        texto_Contador.CambiarContador(points);
+        //int estado_Actual, int points
         Debug.Log("S'han enviat al Contador: " + points);
+
+        estado_mundo = estado_mundo + points;
+
+        if (estado_mundo >= 100f)
+        {
+            estado_mundo = 100f;
+        }
+        else if (estado_mundo <= 0f)
+        {
+            estado_mundo = 0f;
+        }
     }
 
-    private void Update()
+    public float estatus_mundo()
     {
-        //Esquerra
-        if(Input.GetMouseButton(0))
-        {
-            texto_Contador.CambiarContador(-1);
-
-        }
-        //Dreta
-        if (Input.GetMouseButton(1))
-        {
-            texto_Contador.CambiarContador(1);
-        }
-
+        return estado_mundo;
     }
-
 }
