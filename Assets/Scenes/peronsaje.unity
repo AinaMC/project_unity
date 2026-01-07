@@ -243,9 +243,12 @@ MonoBehaviour:
   NPC_actual: {fileID: 13008428}
   centro: {fileID: 1331236992}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   a: {fileID: 1674356396}
   c: {fileID: 1674356395}
 =======
+=======
+>>>>>>> Stashed changes
 <<<<<<< HEAD
   a: {fileID: 0}
   c: {fileID: 0}
@@ -253,6 +256,9 @@ MonoBehaviour:
   a: {fileID: 1674356396}
   c: {fileID: 1674356395}
 >>>>>>> features/scripts
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   arma: {fileID: 0}
 --- !u!1001 &159815296
@@ -1440,7 +1446,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 <<<<<<< HEAD
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0.5264151, b: 0.5264151, a: 0.392}
@@ -1576,6 +1585,9 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 =======
 >>>>>>> features/scripts
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1 &1190197678
 GameObject:
@@ -1702,9 +1714,12 @@ MonoBehaviour:
   NPC_actual: {fileID: 1190197678}
   centro: {fileID: 1331236992}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   a: {fileID: 1674356396}
   c: {fileID: 1674356395}
 =======
+=======
+>>>>>>> Stashed changes
 <<<<<<< HEAD
   a: {fileID: 0}
   c: {fileID: 0}
@@ -1712,6 +1727,9 @@ MonoBehaviour:
   a: {fileID: 1674356396}
   c: {fileID: 1674356395}
 >>>>>>> features/scripts
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   arma: {fileID: 0}
 --- !u!54 &1190197685
@@ -2145,8 +2163,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1 &1674356392
 =======
+=======
+>>>>>>> Stashed changes
 <<<<<<< HEAD
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2239,6 +2260,9 @@ CanvasRenderer:
 =======
 --- !u!1 &1674356392
 >>>>>>> features/scripts
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 GameObject:
   m_ObjectHideFlags: 0
@@ -2248,13 +2272,19 @@ GameObject:
   serializedVersion: 6
   m_Component:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 <<<<<<< HEAD
   - component: {fileID: 1591057694}
   - component: {fileID: 1591057696}
   - component: {fileID: 1591057695}
   m_Layer: 5
   m_Name: Texto_bueno
+=======
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   - component: {fileID: 1674356394}
@@ -2263,6 +2293,10 @@ GameObject:
   m_Layer: 0
   m_Name: NPC_scripts
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> features/scripts
+>>>>>>> Stashed changes
 =======
 >>>>>>> features/scripts
 >>>>>>> Stashed changes
@@ -2272,9 +2306,12 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!4 &1674356394
 Transform:
 =======
+=======
+>>>>>>> Stashed changes
 <<<<<<< HEAD
 --- !u!224 &1591057694
 RectTransform:
@@ -2282,15 +2319,21 @@ RectTransform:
 --- !u!4 &1674356394
 Transform:
 >>>>>>> features/scripts
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_GameObject: {fileID: 1674356392}
   serializedVersion: 2
 =======
+=======
+>>>>>>> Stashed changes
 <<<<<<< HEAD
   m_GameObject: {fileID: 1591057693}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -2518,6 +2561,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!114 &1674356395
 MonoBehaviour:
@@ -2552,6 +2598,10 @@ MonoBehaviour:
   centro: {fileID: 1331236992}
   control_mundo: {fileID: 214902139}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> features/scripts
+>>>>>>> Stashed changes
 =======
 >>>>>>> features/scripts
 >>>>>>> Stashed changes
@@ -2809,13 +2859,19 @@ Rigidbody:
   m_Constraints: 0
   m_CollisionDetection: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1001 &1720167519844875263
 =======
+=======
+>>>>>>> Stashed changes
 <<<<<<< HEAD
 --- !u!1001 &6171406318605688686
 =======
 --- !u!1001 &1720167519844875263
 >>>>>>> features/scripts
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2825,8 +2881,11 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     - target: {fileID: 3953954586149472984, guid: 479b099142f88734cbddef87499eed8f, type: 3}
 =======
+=======
+>>>>>>> Stashed changes
 <<<<<<< HEAD
     - target: {fileID: 6354313976206349857, guid: 7c0726f4b612d134ca92790c65db0eeb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3046,6 +3105,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     - target: {fileID: 3953954586149472984, guid: 479b099142f88734cbddef87499eed8f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -3154,6 +3216,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7407916815740720577, guid: 6455791e407514b40aa85ed951af3338, type: 3}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> features/scripts
+>>>>>>> Stashed changes
 =======
 >>>>>>> features/scripts
 >>>>>>> Stashed changes
@@ -3165,13 +3231,19 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_SourcePrefab: {fileID: 100100000, guid: 6455791e407514b40aa85ed951af3338, type: 3}
 =======
+=======
+>>>>>>> Stashed changes
 <<<<<<< HEAD
   m_SourcePrefab: {fileID: 100100000, guid: 3da2dea8c18a02c479b388f168fd5467, type: 3}
 =======
   m_SourcePrefab: {fileID: 100100000, guid: 6455791e407514b40aa85ed951af3338, type: 3}
 >>>>>>> features/scripts
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -3182,19 +3254,26 @@ SceneRoots:
   - {fileID: 520957039}
   - {fileID: 214902141}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - {fileID: 2397137808076518877}
 =======
+=======
+>>>>>>> Stashed changes
 <<<<<<< HEAD
   - {fileID: 1707373390}
   - {fileID: 8522986751257356186}
 =======
   - {fileID: 2397137808076518877}
 >>>>>>> features/scripts
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   - {fileID: 1769988561}
   - {fileID: 159815296}
   - {fileID: 1190197683}
   - {fileID: 13008433}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   - {fileID: 1720167519844875263}
   - {fileID: 1674356394}
@@ -3202,6 +3281,8 @@ SceneRoots:
   - {fileID: 277042951}
   - {fileID: 1209345614}
 =======
+=======
+>>>>>>> Stashed changes
 <<<<<<< HEAD
   - {fileID: 1331236989}
   - {fileID: 1401568378}
@@ -3215,4 +3296,7 @@ SceneRoots:
   - {fileID: 277042951}
   - {fileID: 1209345614}
 >>>>>>> features/scripts
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
