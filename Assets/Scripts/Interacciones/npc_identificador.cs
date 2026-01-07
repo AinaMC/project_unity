@@ -1,3 +1,4 @@
+//using System.Diagnostics;
 using UnityEngine;
 //Este script hace:
 //IDENTIFICAR NPC y redirigirlo a su script
@@ -7,70 +8,91 @@ public class npc_identificador : MonoBehaviour
     public GameObject NPC_actual;
     //Centro Interacción
     public centro_interaccion centro;
+    
     public animals a;
     public comerciante c;
+    public arma arma;
 
     //Entrar en la zona
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             //Debug.Log("Player ha entrado en Zona");
             centro.opacidad(1f);
-            if (NPC_actual.CompareTag("Animal"))
+            if (NPC_actual.gameObject.CompareTag("Animal"))
             {
                 a.texto();
                 Debug.Log("NPC ANIMAL");
             }
-            if (NPC_actual.CompareTag("Comerciante"))
+            if (NPC_actual.gameObject.CompareTag("Comerciante"))
             {
                 c.texto();
                 Debug.Log("NPC COMERCIANTE");
             }
-  
+            if (NPC_actual.gameObject.CompareTag("Arma"))
+            {
+                arma.texto();
+                Debug.Log("NPC COMERCIANTE");
+            }
+
         }
     }
     //Permanecer en la zona
-    void OnTriggerStay(Collider other)
+    void OnCollisionStay(Collision other)
     {
 
             //Accion Mala
             if (Input.GetKey(KeyCode.L))
             {
                 //Animal
-                if (NPC_actual.CompareTag("Animal"))
+                if (NPC_actual.gameObject.CompareTag("Animal"))
                 {
                     a.accion_mala();
                 }
                 //Comerciante
-                if (NPC_actual.CompareTag("Comerciante"))
+                if (NPC_actual.gameObject.CompareTag("Comerciante"))
                 {
                     c.accion_mala();
                 }
-                Debug.Log("Opcion Mala");
+                //Arma
+                if (NPC_actual.gameObject.CompareTag("Arma"))
+                {
+                    arma.accion_mala();
+                    //Destroy(NPC_actual);
+                }
+            Debug.Log("Opcion Mala");
             }
+
+
             //Accion Buena
             if (Input.GetKey(KeyCode.K))
             {
                 //Animal
-                if (NPC_actual.CompareTag("Animal"))
+                if (NPC_actual.gameObject.CompareTag("Animal"))
                 {
                     a.accion_buena();
                 }
                 //Comerciante
-                if (NPC_actual.CompareTag("Comerciante"))
+                if (NPC_actual.gameObject.CompareTag("Comerciante"))
                 {
                     c.accion_buena();
                 }
-                Debug.Log("Opcion Buena");
+                //Arma
+                if (NPC_actual.gameObject.CompareTag("Arma"))
+                {
+                    arma.accion_buena();
+                    Destroy(NPC_actual);
+                }
+            Debug.Log("Opcion Buena");
             }
 
        
     }
     //Salir de la zona
-    void OnTriggerExit(Collider other)
+    void OnCollisionExit(Collision other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
                 Debug.Log("Player ha salido de la Zona");
                 //OPACIDAD
