@@ -1,4 +1,4 @@
-//using System.Diagnostics;
+using System.Diagnostics;
 using UnityEngine;
 //Este script hace:
 //IDENTIFICAR NPC y redirigirlo a su script
