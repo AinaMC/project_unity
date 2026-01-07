@@ -7,6 +7,8 @@ TagManager:
   - Animal
   - Comerciante
   - Viento
+  - houses
+  - Arma
   layers:
   - Default
   - TransparentFX
@@ -14,7 +16,7 @@ TagManager:
   - Player
   - Water
   - UI
-  - 
+  - Ground
   - 
   - 
   - 
