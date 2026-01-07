@@ -5,6 +5,8 @@ public class Texto_Contador : MonoBehaviour
 {
     [SerializeField] TMP_Text texto;
 
+    public int puntos_globales;
+
     void Start()
     {
     }

@@ -1,20 +1,22 @@
-using System.Collections.Specialized;
 using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
-    public Vector3 MoveInput;
+    public Vector3 MoveInput;  // Store the horizontal and vertical input as a Vector3
+    public bool Jump;  // To track if the player presses the jump key
 
-    void Start()
-    { }
-    //En el input tenim 2, el X y Y, despres ho cridem com a clase
     void Update()
     {
+        // Get input for horizontal and vertical axes (e.g., A/D, W/S, Arrow keys, or joystick axes)
         MoveInput.x = Input.GetAxis("Horizontal");
         MoveInput.y = Input.GetAxis("Vertical");
-    }
-    public Vector3 GetInputInPlane()
-    {
-        return new Vector3(MoveInput.x, 0, MoveInput.y);
+
+        // You can add more inputs for jump or other actions
+        Jump = Input.GetKeyDown(KeyCode.Space);  // Check if the spacebar is pressed
+
+        if (Jump)
+        {
+            Debug.Log("Spacebar Pressed");
+        }
     }
 }
