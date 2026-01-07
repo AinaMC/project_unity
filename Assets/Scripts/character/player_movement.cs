@@ -6,22 +6,15 @@ using UnityEngine;
 
 public class player_movement : MonoBehaviour
 {
-<<<<<<< Updated upstream:Assets/Scripts/character/player_movement.cs
-    
-    public float runSpeed = 7f; 
-    public float rotationSpeed = 20f; 
-    public Animator animator;
-=======
+    //Variables
     public float runSpeed = 7f; // Velocidad de movimiento
     public float rotationSpeed = 20f; // Velocidad de rotación
     public float jumpForce = 5f;
+    private float x, y;
 
     public LayerMask groundLayer;
 
     public Animator animator; // Referencia al Animator
->>>>>>> Stashed changes:Assets/Scripts/player_movement.cs
-
-    private float x, y;
     private InputHandler _inputHandler; // Referencia al script InputHandler
     private Rigidbody rb;
     private bool isGrounded;

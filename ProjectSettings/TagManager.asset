@@ -8,6 +8,7 @@ TagManager:
   - Comerciante
   - Viento
   - houses
+  - Arma
   layers:
   - Default
   - TransparentFX
