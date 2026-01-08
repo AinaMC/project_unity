@@ -8,23 +8,23 @@ public class AudioManagment : MonoBehaviour
     [SerializeField] private AudioClip[] audios; //array en donde cada elemento será un clip de audio
 
     private AudioSource controlAudio; //llamada al AudioSource (componente de control del audio)
-    public Texto_Contador contador; //llamando al script Text_Contador
-    private int comprobador;
+    public WorldManagement mundo; //llamando al script World Management
+    private float comprobador;
     private AudioListener escuchar;
 
     private void Start()
     {
         controlAudio = GetComponent<AudioSource>();
         Debug.Log("Audio cosas");
-        comprobador = contador.puntos_globales;
+        comprobador = mundo.estatus_mundo();
         SeleccionAudio(2, 0.2f);
         escuchar = GetComponent<AudioListener>();
     }
     private void Update()
     {
-        if (comprobador !=contador.puntos_globales)
+        if (comprobador !=mundo.estatus_mundo())
         {
-            comprobador = contador.puntos_globales;
+            comprobador = mundo.estatus_mundo();
             changeAudio(comprobador);
         }
 
@@ -35,14 +35,14 @@ public class AudioManagment : MonoBehaviour
     {
         controlAudio.PlayOneShot(audios[indice], volumen);
     }
-    private void changeAudio(int numComprobador)
+    private void changeAudio(float numComprobador)
     {
         if (escuchar == true)
         {
             controlAudio.Stop();
         }
         //si el contador tiene + de (o =) 70 puntos
-        if (numComprobador >= 70)
+        if (numComprobador >= 70f)
         {
             
             //Element 1 - Utopia
@@ -50,7 +50,7 @@ public class AudioManagment : MonoBehaviour
             Debug.Log("Reproduciendo: UTOPIA");
         }
         //si el contador tiene - de (o =) 30 puntos
-        else if (numComprobador <= 30)
+        else if (numComprobador <= 30f)
         {
             
             //Element 0 - Distopia
