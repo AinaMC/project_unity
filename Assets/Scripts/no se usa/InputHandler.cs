@@ -1,22 +1,30 @@
+using System;
+using System.Diagnostics;
 using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
-    public Vector3 MoveInput;  // Store the horizontal and vertical input as a Vector3
-    public bool Jump;  // To track if the player presses the jump key
+    public Vector3 MoveInput;
+    public bool Jump;
+    public event Action OnJumpButtonPressed;
 
     void Update()
     {
-        // Get input for horizontal and vertical axes (e.g., A/D, W/S, Arrow keys, or joystick axes)
+
         MoveInput.x = Input.GetAxis("Horizontal");
         MoveInput.y = Input.GetAxis("Vertical");
 
-        // You can add more inputs for jump or other actions
-        Jump = Input.GetKeyDown(KeyCode.Space);  // Check if the spacebar is pressed
 
-        if (Jump)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("Spacebar Pressed");
+            Jump = true;
+            OnJumpButtonPressed?.Invoke();  // Invoca el evento cuando se presiona la tecla de salto
+            UnityEngine.Debug.Log("Jump! " + Jump);
         }
+        else
+        {
+            Jump = false;
+        }
+
     }
 }
