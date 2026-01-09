@@ -10,7 +10,6 @@ public class CicloDiaNoche : MonoBehaviour
 
     public float DuracionDelDiaEnMinutos = 1f;
 
-
     public float HoraNormalizada => Hora / 24f; // 0–1
 
     void Update()
