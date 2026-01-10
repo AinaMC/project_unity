@@ -26,14 +26,9 @@ public class soldado_quieto : MonoBehaviour
     }
     public void accion_mala()
     {
-<<<<<<< Updated upstream
-        anim.SetTrigger("mala_accion");
-        //Debug.Log("Opcion Mala");
-        control_mundo.recibir_puntos(-3.5f);
-=======
         //Debug.Log("Opcion Mala");
         control_mundo.recibir_puntos(-3.5f);
         anim.SetTrigger("mala_accion");
->>>>>>> Stashed changes
+
     }
 }

@@ -54,11 +54,7 @@ public class npc_identificador : MonoBehaviour
                 Debug.Log("NPC SOLDADO");
             }
             //desbloquear cursor
-<<<<<<< Updated upstream
             //Cursor.lockState = CursorLockMode.Confined;
-=======
-            Cursor.lockState = CursorLockMode.Confined;
->>>>>>> Stashed changes
             nombre = NPC_actual.gameObject.tag;
             FixedUpdate();
         }          
@@ -94,11 +90,8 @@ public class npc_identificador : MonoBehaviour
                 }
                 Debug.Log("Opcion Mala");
                 centro.opacidad(0f);
-<<<<<<< Updated upstream
+
                 //Cursor.lockState = CursorLockMode.Locked;
-=======
-                Cursor.lockState = CursorLockMode.Locked;
->>>>>>> Stashed changes
                 nombre = "";
             }
 
@@ -129,11 +122,9 @@ public class npc_identificador : MonoBehaviour
                 }
                 Debug.Log("Opcion Buena");
                 centro.opacidad(0f);
-<<<<<<< Updated upstream
+
                 //Cursor.lockState = CursorLockMode.Locked;
-=======
-                Cursor.lockState = CursorLockMode.Locked;
->>>>>>> Stashed changes
+
                 nombre = "";
             }
         }
@@ -156,10 +147,7 @@ public class npc_identificador : MonoBehaviour
             nombre = "";
         }
         //Escondemos el cursor
-<<<<<<< Updated upstream
         //Cursor.lockState = CursorLockMode.Locked;
-=======
-        Cursor.lockState = CursorLockMode.Locked;
->>>>>>> Stashed changes
+
     }
  }
