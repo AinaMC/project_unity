@@ -26,8 +26,8 @@ public class soldado_quieto : MonoBehaviour
     }
     public void accion_mala()
     {
+        anim.SetTrigger("mala_accion");
         //Debug.Log("Opcion Mala");
         control_mundo.recibir_puntos(-3.5f);
-        anim.SetTrigger("mala_accion");
     }
 }

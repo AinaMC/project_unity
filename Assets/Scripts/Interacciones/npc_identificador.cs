@@ -54,7 +54,7 @@ public class npc_identificador : MonoBehaviour
                 Debug.Log("NPC SOLDADO");
             }
             //desbloquear cursor
-            Cursor.lockState = CursorLockMode.Confined;
+            //Cursor.lockState = CursorLockMode.Confined;
             nombre = NPC_actual.gameObject.tag;
             FixedUpdate();
         }          
@@ -90,7 +90,7 @@ public class npc_identificador : MonoBehaviour
                 }
                 Debug.Log("Opcion Mala");
                 centro.opacidad(0f);
-                Cursor.lockState = CursorLockMode.Locked;
+                //Cursor.lockState = CursorLockMode.Locked;
                 nombre = "";
             }
 
@@ -121,7 +121,7 @@ public class npc_identificador : MonoBehaviour
                 }
                 Debug.Log("Opcion Buena");
                 centro.opacidad(0f);
-                Cursor.lockState = CursorLockMode.Locked;
+                //Cursor.lockState = CursorLockMode.Locked;
                 nombre = "";
             }
         }
@@ -144,6 +144,6 @@ public class npc_identificador : MonoBehaviour
             nombre = "";
         }
         //Escondemos el cursor
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
  }
