@@ -2,14 +2,17 @@
 
 public class TimeManager : MonoBehaviour
 {
+    [Header("World Management")]
+    public WorldManagement contador;
+
     [Header("Referències")]
     public CicloDiaNoche ciclo;
     public Light sol;
     public Light lluna;
 
-
     [Header("Fanals")]
     public Light[] fanals;
+    public Renderer[] vidresFanals; // Renderer del mesh que conté el material emissiu
 
     [Header("Intensitats")]
     public float intensitatSol = 1.2f;
@@ -19,75 +22,72 @@ public class TimeManager : MonoBehaviour
     [Header("Velocitat de fade")]
     public float velocitatFade = 2f;
 
-    [Header("Gradients de color")]
+    [Header("Gradients Neutrals")]
     public Gradient gradientSol;
     public Gradient gradientLluna;
     public Gradient gradientAmbient;
+    public Gradient gradientFanals;  
 
-    [Header("Fanals emissió (shader)")]
-    public Renderer[] vidresFanals;
+    [Header("Gradients Utòpic")]
+    public Gradient gradientSolUtopic;
+    public Gradient gradientLlunaUtopic;
+    public Gradient gradientFanalsUtopic;
+    public Gradient gradientAmbientUtopic;
+
+    [Header("Gradients Distòpic")]
+    public Gradient gradientSolDistopic;
+    public Gradient gradientLlunaDistopic;
+    public Gradient gradientFanalsDistopic; 
+    public Gradient gradientAmbientDistopic;
+
+    [Header("Emissió fanals")]
     public Color colorEmissiu = Color.white;
     public float intensitatEmissiva = 2f;
-
-    private bool eraDeDia = true;
 
     void Update()
     {
         ActualitzarLlums();
-        ActualitzarGradient();
-        ActualitzarFanals();
+        ActualitzarColors();
+        ActualitzarEmissioFanals();
     }
 
-    void ActualitzarFanals()
+    // ───────────────────────── LLUMS ─────────────────────────
+
+    void ActualitzarLlums()
     {
         float hora = ciclo.Hora;
-
-        // Dia: 6–18
         bool esDeDia = hora >= 6f && hora < 18f;
 
-        // Només actuem quan canvia dia/nit
-        if (esDeDia == eraDeDia)
-            return;
+        sol.intensity = Mathf.Lerp(
+            sol.intensity,
+            esDeDia ? intensitatSol : 0f,
+            velocitatFade * Time.deltaTime
+        );
 
-        foreach (Renderer r in vidresFanals)
+        lluna.intensity = Mathf.Lerp(
+            lluna.intensity,
+            esDeDia ? 0f : intensitatLluna,
+            velocitatFade * Time.deltaTime
+        );
+
+        foreach (Light f in fanals)
         {
-            Material[] mats = r.materials;
-
-            // Material 0 = vidre
-            Material vidre = mats[2];
-
-            if (esDeDia)
-            {
-                // APAGAR emissió
-                vidre.DisableKeyword("_EMISSION");
-                vidre.SetColor("_EmissionColor", Color.black);
-            }
-            else
-            {
-                // ENCENDRE emissió
-                vidre.EnableKeyword("_EMISSION");
-                vidre.SetColor("_EmissionColor", colorEmissiu * intensitatEmissiva);
-            }
-
-            mats[2] = vidre;
-            r.materials = mats;
+            f.intensity = Mathf.Lerp(
+                f.intensity,
+                esDeDia ? 0f : intensitatFanals,
+                velocitatFade * Time.deltaTime
+            );
         }
-
-        eraDeDia = esDeDia;
     }
 
+    // ───────────────────────── COLORS ─────────────────────────
 
-
-
-
-
-
-    void ActualitzarGradient()
+    void ActualitzarColors()
     {
         float hora = ciclo.Hora;
         float blend;
 
-        // EXACTAMENT el mateix càlcul que el skybox
+        // Dia a Nit (coherent amb el skybox)
         if (hora < 5f || hora >= 19f)
             blend = 1f;
         else if (hora < 7f)
@@ -97,28 +97,70 @@ public class TimeManager : MonoBehaviour
         else
             blend = Mathf.InverseLerp(19f, 17f, hora);
 
-        // COLORS
-        sol.color = gradientSol.Evaluate(1f - blend);
-        lluna.color = gradientLluna.Evaluate(blend);
-        RenderSettings.ambientLight = gradientAmbient.Evaluate(blend);
-        RenderSettings.fogColor = RenderSettings.ambientLight;
+        Gradient solG = SeleccionarGradient(
+            gradientSol,
+            gradientSolUtopic,
+            gradientSolDistopic
+        );
+
+        Gradient llunaG = SeleccionarGradient(
+            gradientLluna,
+            gradientLlunaUtopic,
+            gradientLlunaDistopic
+        );
+
+        Gradient ambientG = SeleccionarGradient(
+            gradientAmbient,
+            gradientAmbientUtopic,
+            gradientAmbientDistopic
+        );
+
+        Color ambientColor = ambientG.Evaluate(blend);
+        RenderSettings.ambientLight = ambientColor;
+        RenderSettings.fogColor = ambientColor;
+
+        sol.color = solG.Evaluate(1f - blend);
+        lluna.color = llunaG.Evaluate(blend);
+
+       
     }
 
-    void ActualitzarLlums()
+    Gradient SeleccionarGradient(Gradient neutral, Gradient utopic, Gradient distopic)
+    {
+        float estat = contador.estatus_mundo();
+
+        if (estat < 30f) return utopic;
+        if (estat < 70f) return neutral;
+        return distopic;
+    }
+
+    // ───────────────────────── FANALS (EMISSIÓ) ─────────────────────────
+
+    // ───────── SUBSTITUEIX COMPLETAMENT AQUEST MÈTODE ─────────
+
+    void ActualitzarEmissioFanals()
     {
         float hora = ciclo.Hora;
-        bool esDeDia = hora >= 6f && hora < 18f;
+        bool esDeNit = hora < 6f || hora >= 18f;
 
-        float solTarget = esDeDia ? intensitatSol : 0f;
-        float llunaTarget = esDeDia ? 0f : intensitatLluna;
-        float fanalsTarget = esDeDia ? 0f : intensitatFanals;
-
-        sol.intensity = Mathf.Lerp(sol.intensity, solTarget, velocitatFade * Time.deltaTime);
-        lluna.intensity = Mathf.Lerp(lluna.intensity, llunaTarget, velocitatFade * Time.deltaTime);
-
-        foreach (Light f in fanals)
+        foreach (Renderer r in vidresFanals)
         {
-            f.intensity = Mathf.Lerp(f.intensity, fanalsTarget, velocitatFade * Time.deltaTime);
+            Material vidre = r.materials[2];
+
+            if (esDeNit)
+            {
+                Color colorFanals = fanals.Length > 0 ? fanals[0].color : Color.white;
+
+                vidre.EnableKeyword("_EMISSION");
+                vidre.SetColor("_EmissionColor", colorFanals * intensitatEmissiva);
+            }
+            else
+            {
+                vidre.DisableKeyword("_EMISSION");
+                vidre.SetColor("_EmissionColor", Color.black);
+            }
         }
     }
+
+
 }
