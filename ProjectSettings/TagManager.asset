@@ -4,9 +4,10 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - houses
   - Animal
   - Comerciante
+  - Viento
+  - houses
   - Arma
   layers:
   - Default
@@ -15,8 +16,8 @@ TagManager:
   - Player
   - Water
   - UI
-  - Escenario
-  - Camara
+  - Ground
+  - 
   - 
   - 
   - 

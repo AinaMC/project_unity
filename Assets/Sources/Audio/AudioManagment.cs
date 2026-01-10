@@ -1,67 +1,100 @@
-//using System.Diagnostics.CodeAnalysis;
-//using Unity.VisualScripting;
-//using UnityEngine;
+using System.Collections;
+using UnityEngine;
 
-//[RequireComponent(typeof(AudioSource))]
-//public class AudioManagment : MonoBehaviour
-//{
-//    [SerializeField] private AudioClip[] audios; //array en donde cada elemento será un clip de audio
+[RequireComponent(typeof(AudioSource))]
+public class AudioManagment : MonoBehaviour
+{
+    [SerializeField] private AudioClip[] audios; //array en donde cada elemento será un clip de audio
 
-//    private AudioSource controlAudio; //llamada al AudioSource (componente de control del audio)
-//    public WorldManagement contador; //llamando al script Text_Contador
-//    private int comprobador;
-//    private AudioListener escuchar;
-//    private void Start()
-//    {
-//        controlAudio = GetComponent<AudioSource>();
-//        Debug.Log("Audio cosas");
-//        comprobador = contador.estatus_mundo;
-//        SeleccionAudio(2, 0.2f);
-//        escuchar = GetComponent<AudioListener>();
-//    }
-//    private void Update()
-//    {
-//        if (comprobador !=contador.estatus_mundo)
-//        {
-//            comprobador = contador.estatus_mundo;
-//            changeAudio(comprobador);
-//        }
+    private AudioSource audioA, audioB;
+    private AudioSource controlAudio; //llamada al AudioSource (componente de control del audio)
 
-//    }
+    public WorldManagement contador; //llamando al script WorldManagement -->
+    private float comprobador;
+    private void Start()
+    {
+        //controlAudio = GetComponent<AudioSource>();
+        AudioSource[] sources = GetComponents<AudioSource>();
+        audioA = sources[0];
+        audioB = sources[1];
 
-//    //gestion de todos los audios
-//    public void SeleccionAudio(int indice, float volumen) //creamos variable para el num del array (para escojer el elemento con su audio) y otra para el volumen (este puede ser de 0-1)
-//    {
-//        controlAudio.PlayOneShot(audios[indice], volumen);
-//    }
-//    private void changeAudio(int numComprobador)
-//    {
-//        if (escuchar == true)
-//        {
-//            controlAudio.Stop();
-//        }
-//        //si el contador tiene + de (o =) 70 puntos
-//        if (numComprobador >= 70)
-//        {
-            
-//            //Element 1 - Utopia
-//            SeleccionAudio(1, 0.2f); //me detecta el numero como double??? así que le pongo explicitamente que se trata de un float
-//            Debug.Log("Reproduciendo: UTOPIA");
-//        }
-//        //si el contador tiene - de (o =) 30 puntos
-//        else if (numComprobador <= 30)
-//        {
-            
-//            //Element 0 - Distopia
-//            SeleccionAudio(0, 0.3f); //distopia esta (el audio org esta mas bajo)
-//            Debug.Log("Reproduciendo: DISTOPIA");
-//        }
-//        else
-//        {
-            
-//            //Element 2 - Neutro
-//            SeleccionAudio(2, 0.2f);
-//            Debug.Log("Reproduciendo: NEUTRO");
-//        }
-//    }
-//}
+        controlAudio = audioA;
+
+        controlAudio.clip = audios[2]; // Neutro
+        controlAudio.volume = 0.2f;
+        controlAudio.Play();
+        Debug.Log("Audio cosas ha empezado. Reproduciendo: Neutro");
+
+        comprobador = contador.estatus_mundo();
+        //SeleccionAudio(2, 0.2f);
+        //escuchar = GetComponent<AudioListener>();
+    }
+    private void Update()
+    {
+        if (comprobador != contador.estatus_mundo())
+        {
+            comprobador = contador.estatus_mundo();
+            changeAudio(comprobador);
+        }
+
+    }
+
+    //crossfade
+    IEnumerator Crossfade(int nuevoIndice, float volumenObjetivo, float duracion)
+    {
+        AudioSource entrante = (controlAudio == audioA) ? audioB : audioA;
+        AudioSource saliente = controlAudio;
+
+        entrante.clip = audios[nuevoIndice];
+        entrante.volume = 0f;
+        entrante.Play();
+
+        float t = 0f;
+
+        while (t < duracion)
+        {
+            t += Time.deltaTime;
+            float lerp = t / duracion;
+
+            entrante.volume = Mathf.Lerp(0f, volumenObjetivo, lerp);
+            saliente.volume = Mathf.Lerp(volumenObjetivo, 0f, lerp);
+
+            yield return null;
+        }
+
+        saliente.Stop();
+        controlAudio = entrante;
+    }
+
+    private void changeAudio(float numComprobador)
+    {
+        int indiceDeseado;
+        float volumen;
+
+        if (numComprobador >= 70) // Utopía
+        {
+            indiceDeseado = 1;
+            volumen = 0.2f;
+
+        }
+        else if (numComprobador <= 30) // Distopía
+        {
+            indiceDeseado = 0;
+            volumen = 0.3f;
+        }
+        else // Neutro
+        {
+            indiceDeseado = 2;
+            volumen = 0.2f;
+        }
+
+        // Si ya está sonando ese clip, no hacemos nada
+        if (controlAudio.clip == audios[indiceDeseado])
+        {
+            return;
+        }
+
+        //inicializa el crossfade
+        StartCoroutine(Crossfade(indiceDeseado, volumen, 2.3f));
+    }
+}
