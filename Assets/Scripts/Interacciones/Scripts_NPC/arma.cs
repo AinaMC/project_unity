@@ -27,5 +27,6 @@ public class arma : MonoBehaviour
     {
         //Debug.Log("Opcion Mala");
         control_mundo.recibir_puntos(-2.5f);
+
     }
 }
