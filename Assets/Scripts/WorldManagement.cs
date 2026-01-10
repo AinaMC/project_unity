@@ -5,6 +5,7 @@ using UnityEngine;
 public class WorldManagement : MonoBehaviour
 {
     public finalMoment final;
+
     //Variables
     private float estado_mundo = 50f;
 

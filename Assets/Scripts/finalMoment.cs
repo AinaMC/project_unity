@@ -1,12 +1,14 @@
-
-
+using TMPro;
 using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 public class finalMoment : MonoBehaviour
 {
+    //public GameObject gameOverUI;
+    private bool theEnd = false;
+
     [Header("Identificar mundo")]
     public int final_mundo;
     //Canvas
@@ -22,7 +24,10 @@ public class finalMoment : MonoBehaviour
     public float cuenta_atras = 100f;
     public float MAX_cuenta = 100f;
     public bool crono_activado;
-    
+
+    [Header("Textos")]
+    [SerializeField] TMP_Text finalText;
+
     void Start()
     {
         barra_contador.fillAmount = cuenta_atras / MAX_cuenta;
@@ -55,8 +60,9 @@ public class finalMoment : MonoBehaviour
         }
 
 
-        if (cuenta_atras <= 0)
+        if (cuenta_atras <= 0 && !theEnd)
         {
+            theEnd = true; //solo llamar una vez
             finJuego();
         }
 
@@ -76,14 +82,17 @@ public class finalMoment : MonoBehaviour
         opacidad(0f);
     }
 
-    private void finJuego()
+
+     void finJuego()
     {
+        //gameOverUI.SetActive(true);
         //Acaba utopico
         if (final_mundo == 1)
         {
             //fondo.Color(0f, 1f, 0f , 1f);
             Debug.Log("Fin Mundo Utopico");
             fondo_grup.alpha = Mathf.Lerp(0f, 1f, 5f);
+            finalText.text = "Tu final ha sido bueno como tu, descansa";
         }
         //Acaba distopico
         else if (final_mundo == 2)
@@ -91,8 +100,10 @@ public class finalMoment : MonoBehaviour
             //fondo.Color(1f, 0f, 0f, 1f);
             Debug.Log("Fin Mundo Distopico");
             fondo_grup.alpha = Mathf.Lerp(0f, 1f, 5f);
+            finalText.text = "No continues, has hecho suficiente daño";
         }
-        Debug.Log("Fin Mundo");
+
     }
+
 
 }
