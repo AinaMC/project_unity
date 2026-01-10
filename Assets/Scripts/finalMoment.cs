@@ -19,8 +19,8 @@ public class finalMoment : MonoBehaviour
     public Image fondo;
 
     [Header("Variables")]
-    public int cuenta_atras = 1000;
-    public int MAX_cuenta = 1000;
+    public float cuenta_atras = 100f;
+    public float MAX_cuenta = 100f;
     public bool crono_activado;
     
     void Start()
@@ -37,27 +37,31 @@ public class finalMoment : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (crono_activado == true)
-        {
-            Invoke("restar_contador", 5f);
+        Invoke("verContador", 1f);
+    }
 
-            if (cuenta_atras == 0)
-            {
-                finJuego();
-            }
-        }
-        else
+    void verContador()
+    {
+        if (crono_activado == true && cuenta_atras >= 0)
         {
-            cuenta_atras = 1000;
+            cuenta_atras = cuenta_atras - 0.1f;
+            barra_contador.fillAmount = cuenta_atras / MAX_cuenta;
+
+        }
+        else if (crono_activado == false && cuenta_atras > 0)
+        {
+            cuenta_atras = 100;
             opacidad(0f);
         }
-        
+
+
+        if (cuenta_atras <= 0)
+        {
+            finJuego();
+        }
+
     }
-    void restar_contador()
-    {
-        cuenta_atras -= 1;
-        barra_contador.fillAmount = cuenta_atras / MAX_cuenta;
-    }
+ 
     public void final(int mundo)
     {
         final_mundo = mundo;
@@ -71,6 +75,7 @@ public class finalMoment : MonoBehaviour
         crono_activado = false;
         opacidad(0f);
     }
+
     private void finJuego()
     {
         //Acaba utopico
