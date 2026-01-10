@@ -4,6 +4,7 @@ using UnityEngine;
 //Distopia = 1
 public class WorldManagement : MonoBehaviour
 {
+    public finalMoment final;
     //Variables
     private float estado_mundo = 50f;
 
@@ -36,5 +37,22 @@ public class WorldManagement : MonoBehaviour
     public float estatus_mundo()
     {
         return estado_mundo;
+    }
+
+    void FixedUpdate()
+    {
+        if (estado_mundo == 100f)
+        {
+            final.final(1);
+        }
+        else if (estado_mundo == 0f)
+        {
+            final.final(2);
+        }
+        else
+        {
+            final.cancelar_final();
+        }
+
     }
 }
