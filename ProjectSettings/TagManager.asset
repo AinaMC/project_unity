@@ -9,6 +9,7 @@ TagManager:
   - Viento
   - houses
   - Arma
+  - Soldado
   layers:
   - Default
   - TransparentFX
