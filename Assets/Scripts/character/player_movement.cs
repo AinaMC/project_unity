@@ -1,33 +1,29 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
-
 
 public class player_movement : MonoBehaviour
 {
     //Variables
-    private InputHandler _inputHandler;
-    public Animator animator;
-    private Rigidbody rb;
-
-
-    public float runSpeed = 7f;
-    public float rotationSpeed = 20f;
-
+    public float runSpeed = 7f; // Velocidad de movimiento
+    public float rotationSpeed = 20f; // Velocidad de rotación
+    public float jumpForce = 5f;
     private float x, y;
 
     public LayerMask groundLayer;
+
+    public Animator animator; // Referencia al Animator
+    private InputHandler _inputHandler; // Referencia al script InputHandler
+    private Rigidbody rb;
     private bool isGrounded;
-    private float _jumpForce = 16f;
-
-    private void Awake()
-    {
-        _inputHandler = GetComponent<InputHandler>();
-        rb = GetComponent<Rigidbody>();
-
-    }
 
     void Start()
     {
-
+        // Obtener la referencia del InputHandler
+        _inputHandler = GetComponent<InputHandler>();
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -38,18 +34,14 @@ public class player_movement : MonoBehaviour
 
         isGrounded = CheckGrounded();
 
-        if (isGrounded && _inputHandler.Jump)
-        {
-            Jump();
-        }
+        //Debug.Log("Is Grounded: " + isGrounded);
 
-        // Detectar si el jugador está en el suelo y aplicar la gravedad adicional si no lo está
-        if (!isGrounded && rb.linearVelocity.y < 0)  // Si el jugador está cayendo
-        {
-            rb.AddForce(Vector3.down * 16f, ForceMode.Acceleration);  // Añade gravedad manualmente
-        }
+        //if (_inputHandler.Jump && isGrounded)
+        //{
+        //    Jump();
+        //}
 
-        if ( x!= 0 )
+        if( x!= 0 )
         {
             RotateCharacter(x);
         }
@@ -64,24 +56,20 @@ public class player_movement : MonoBehaviour
         animator.SetFloat("Vel_Y", y);
     }
 
+    // Método para cambiar la velocidad de movimiento
     public void cambiar_vel(float new_vel)
     {
         runSpeed = new_vel;
     }
 
-    private void Jump()
-    {
-        Debug.Log("Jump!");
-        rb.AddForce(Vector3.up * _jumpForce, ForceMode.VelocityChange);
-    }
+    //private void Jump()
+    //{
+    //    rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+    //}
 
     private bool CheckGrounded()
     {
-        //return Physics.Raycast(transform.position, Vector3.down, f, groundLayer);
-
-        bool grounded = Physics.Raycast(transform.position, Vector3.down, 0.25f, groundLayer);
-        Debug.DrawRay(transform.position, Vector3.down * 0.25f, grounded ? Color.green : Color.red); // Muestra el raycast en la escena
-        return grounded;
+        return Physics.Raycast(transform.position, Vector3.down, 2f, groundLayer);
     }
 
     private void RotateCharacter(float horizontalInput)
@@ -96,6 +84,7 @@ public class player_movement : MonoBehaviour
     private void MoveCharacter(float verticalInput)
     {
         Vector3 moveDirection = transform.forward * y;
+
         rb.MovePosition(rb.position + moveDirection * runSpeed * Time.deltaTime);
     }
 }
