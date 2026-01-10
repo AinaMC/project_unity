@@ -129,28 +129,44 @@ public class TimeManager : MonoBehaviour
     {
         float estat = contador.estatus_mundo();
 
-        if (estat < 30f) return utopic;
+        if (estat < 30f) return distopic;
         if (estat < 70f) return neutral;
-        return distopic;
+        return utopic;
     }
 
     // ───────────────────────── FANALS (EMISSIÓ) ─────────────────────────
 
-    // ───────── SUBSTITUEIX COMPLETAMENT AQUEST MÈTODE ─────────
+    
 
     void ActualitzarEmissioFanals()
     {
         float hora = ciclo.Hora;
         bool esDeNit = hora < 6f || hora >= 18f;
 
+        // Gradient segons l'estat del món (utòpic / neutral / distòpic)
+        Gradient fanalsG = SeleccionarGradient(
+            gradientFanals,
+            gradientFanalsUtopic,
+            gradientFanalsDistopic
+        );
+
+        // Color segons hora normalitzada
+        Color colorFanals = fanalsG.Evaluate(ciclo.HoraNormalizada);
+
+        // Aplicar color a les llums només de nit
+        foreach (Light f in fanals)
+        {
+            f.color = esDeNit ? colorFanals : Color.black;
+            f.intensity = esDeNit ? intensitatFanals : 0f; // fade si vols més tard
+        }
+
+        // Aplicar el mateix color a l'emissió del vidre dels fanals
         foreach (Renderer r in vidresFanals)
         {
-            Material vidre = r.materials[2];
+            Material vidre = r.materials[2]; // material emissiu
 
             if (esDeNit)
             {
-                Color colorFanals = fanals.Length > 0 ? fanals[0].color : Color.white;
-
                 vidre.EnableKeyword("_EMISSION");
                 vidre.SetColor("_EmissionColor", colorFanals * intensitatEmissiva);
             }
@@ -159,8 +175,14 @@ public class TimeManager : MonoBehaviour
                 vidre.DisableKeyword("_EMISSION");
                 vidre.SetColor("_EmissionColor", Color.black);
             }
+
+            // Reassignem el material per Unity
+            Material[] mats = r.materials;
+            mats[2] = vidre;
+            r.materials = mats;
         }
     }
+
 
 
 }
