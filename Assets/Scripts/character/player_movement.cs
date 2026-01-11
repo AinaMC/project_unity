@@ -77,11 +77,20 @@ public class player_movement : MonoBehaviour
 
     private bool CheckGrounded()
     {
-        //return Physics.Raycast(transform.position, Vector3.down, f, groundLayer);
 
-        bool grounded = Physics.Raycast(transform.position, Vector3.down, 0.25f, groundLayer);
-        Debug.DrawRay(transform.position, Vector3.down * 0.25f, grounded ? Color.green : Color.red); // Muestra el raycast en la escena
+        Collider _collider = GetComponent<Collider>();
+
+        Vector3 rayOrigin = _collider.bounds.center - Vector3.up * 0.5f;
+
+        bool grounded = Physics.Raycast(rayOrigin, Vector3.down, 1f, groundLayer);
+
+        Debug.DrawRay(rayOrigin, Vector3.down * 1f, grounded ? Color.green : Color.red);
         return grounded;
+
+
+        //bool grounded = Physics.Raycast(transform.position, Vector3.down, 0.25f, groundLayer);
+        //Debug.DrawRay(transform.position, Vector3.down * 0.25f, grounded ? Color.green : Color.red); // Muestra el raycast en la escena
+        //return grounded;
     }
 
     private void RotateCharacter(float horizontalInput)
