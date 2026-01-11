@@ -7,9 +7,9 @@ using UnityEngine;
 public class player_movement : MonoBehaviour
 {
     //Variables
-    public float runSpeed = 7f; // Velocidad de movimiento
-    public float rotationSpeed = 20f; // Velocidad de rotaci�n
-    private float jumpForce = 15f;
+    public float runSpeed = 10f;
+    public float rotationSpeed = 20f;
+    public float jumpForce = 15f;
     private float x, y;
 
     public LayerMask groundLayer;
@@ -42,7 +42,7 @@ public class player_movement : MonoBehaviour
         // Detectar si el jugador está en el suelo y aplicar la gravedad adicional si no lo está
         if (!isGrounded && rb.linearVelocity.y < 0)  // Si el jugador está cayendo
         {
-            rb.AddForce(Vector3.down * (jumpForce + 9.81f), ForceMode.Acceleration);  // Añade gravedad manualmente
+            rb.AddForce(Vector3.down * (jumpForce + 9.81f), ForceMode.Acceleration);
         }
 
         if ( x!= 0 )
@@ -60,7 +60,7 @@ public class player_movement : MonoBehaviour
         animator.SetFloat("Vel_Y", y);
     }
 
-    // M�todo para cambiar la velocidad de movimiento
+    // Metodo para cambiar la velocidad de movimiento
     public void cambiar_vel(float new_vel)
     {
         runSpeed = new_vel;
