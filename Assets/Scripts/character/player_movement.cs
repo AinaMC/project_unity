@@ -8,7 +8,7 @@ public class player_movement : MonoBehaviour
 {
     //Variables
     public float runSpeed = 7f; // Velocidad de movimiento
-    public float rotationSpeed = 20f; // Velocidad de rotación
+    public float rotationSpeed = 20f; // Velocidad de rotaciï¿½n
     public float jumpForce = 5f;
     private float x, y;
 
@@ -30,7 +30,7 @@ public class player_movement : MonoBehaviour
     {
         // Obtener los valores de movimiento desde InputHandler
         x = _inputHandler.MoveInput.x;  // Horizontal (movimiento de izquierda/derecha)
-        y = _inputHandler.MoveInput.y;  // Vertical (movimiento hacia adelante/atrás)
+        y = _inputHandler.MoveInput.y;  // Vertical (movimiento hacia adelante/atrï¿½s)
 
         isGrounded = CheckGrounded();
 
@@ -56,7 +56,7 @@ public class player_movement : MonoBehaviour
         animator.SetFloat("Vel_Y", y);
     }
 
-    // Método para cambiar la velocidad de movimiento
+    // Mï¿½todo para cambiar la velocidad de movimiento
     public void cambiar_vel(float new_vel)
     {
         runSpeed = new_vel;
@@ -69,7 +69,20 @@ public class player_movement : MonoBehaviour
 
     private bool CheckGrounded()
     {
-        return Physics.Raycast(transform.position, Vector3.down, 2f, groundLayer);
+
+        Collider _collider = GetComponent<Collider>();
+
+        Vector3 rayOrigin = _collider.bounds.center - Vector3.up * 0.5f;
+
+        bool grounded = Physics.Raycast(rayOrigin, Vector3.down, 1f, groundLayer);
+
+        Debug.DrawRay(rayOrigin, Vector3.down * 1f, grounded ? Color.green : Color.red);
+        return grounded;
+
+
+        //bool grounded = Physics.Raycast(transform.position, Vector3.down, 0.25f, groundLayer);
+        //Debug.DrawRay(transform.position, Vector3.down * 0.25f, grounded ? Color.green : Color.red); // Muestra el raycast en la escena
+        //return grounded;
     }
 
     private void RotateCharacter(float horizontalInput)
