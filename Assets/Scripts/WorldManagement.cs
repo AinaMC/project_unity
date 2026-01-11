@@ -4,6 +4,8 @@ using UnityEngine;
 //Distopia = 1
 public class WorldManagement : MonoBehaviour
 {
+    public finalMoment final;
+
     //Variables
     private float estado_mundo = 50f;
 
@@ -15,7 +17,7 @@ public class WorldManagement : MonoBehaviour
     }
 
     //AQUI ENVIAR TODOS LOS PUNTOS DESDE CUALQUIER SCRIPT
-    //Aquí llegaran los nuevos puntos de otros scripts y de aqui cambia el contador
+    //Aquï¿½ llegaran los nuevos puntos de otros scripts y de aqui cambia el contador
     public void recibir_puntos(float points)
     {
         //int estado_Actual, int points
@@ -38,18 +40,19 @@ public class WorldManagement : MonoBehaviour
         return estado_mundo;
     }
 
-    private void Update()
+    void FixedUpdate()
     {
-        //Esquerra
-        if (Input.GetMouseButton(0))
+        if (estado_mundo == 100f)
         {
-            recibir_puntos(-10);
-
+            final.final(1);
         }
-        //Dreta
-        if (Input.GetMouseButton(1))
+        else if (estado_mundo == 0f)
         {
-            recibir_puntos(10);
+            final.final(2);
+        }
+        else
+        {
+            final.cancelar_final();
         }
 
     }

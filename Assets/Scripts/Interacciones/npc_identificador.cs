@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class npc_identificador : MonoBehaviour
 {
     public GameObject NPC_actual;
-    //Centro Interacción
+    //Centro Interacciï¿½n
     public centro_interaccion centro;
     public string nombre= "";
 
@@ -54,7 +54,9 @@ public class npc_identificador : MonoBehaviour
                 Debug.Log("NPC SOLDADO");
             }
             //desbloquear cursor
+
             //Cursor.lockState = CursorLockMode.Confined;
+
             nombre = NPC_actual.gameObject.tag;
             FixedUpdate();
         }          
