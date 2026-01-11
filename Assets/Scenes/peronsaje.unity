@@ -242,9 +242,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NPC_actual: {fileID: 13008428}
   centro: {fileID: 1331236992}
+  nombre: 
   a: {fileID: 0}
   c: {fileID: 0}
   arma: {fileID: 0}
+  soldado: {fileID: 0}
 --- !u!1001 &159815296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -267,7 +269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 66460961811220642, guid: 90ed31146c538844da81cf16717ec2ff, type: 3}
       propertyPath: m_UseGravity
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 66460961811220642, guid: 90ed31146c538844da81cf16717ec2ff, type: 3}
       propertyPath: m_AngularDrag
@@ -699,7 +701,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7838290740440585848, guid: 90ed31146c538844da81cf16717ec2ff, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8116159209201641135, guid: 90ed31146c538844da81cf16717ec2ff, type: 3}
       propertyPath: m_Layer
@@ -885,8 +887,7 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 66460961811220642, guid: 90ed31146c538844da81cf16717ec2ff, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6983014130975125967, guid: 90ed31146c538844da81cf16717ec2ff, type: 3}
@@ -1476,7 +1477,7 @@ GameObject:
   - component: {fileID: 520957037}
   - component: {fileID: 520957036}
   - component: {fileID: 520957040}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2160,9 +2161,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NPC_actual: {fileID: 1190197678}
   centro: {fileID: 1331236992}
+  nombre: 
   a: {fileID: 0}
   c: {fileID: 0}
   arma: {fileID: 0}
+  soldado: {fileID: 0}
 --- !u!54 &1190197685
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2513,6 +2516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveInput: {x: 0, y: 0, z: 0}
+  Jump: 0
 --- !u!114 &1305725880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2520,7 +2524,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1305725871}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86ba3b5fa48356f40b3832857492109e, type: 3}
   m_Name: 

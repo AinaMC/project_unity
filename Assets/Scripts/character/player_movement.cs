@@ -9,13 +9,13 @@ public class player_movement : MonoBehaviour
     //Variables
     public float runSpeed = 7f; // Velocidad de movimiento
     public float rotationSpeed = 20f; // Velocidad de rotaci�n
-    public float jumpForce = 5f;
+    private float jumpForce = 15f;
     private float x, y;
 
     public LayerMask groundLayer;
 
-    public Animator animator; // Referencia al Animator
-    private InputHandler _inputHandler; // Referencia al script InputHandler
+    public Animator animator;
+    private InputHandler _inputHandler;
     private Rigidbody rb;
     private bool isGrounded;
 
@@ -34,14 +34,18 @@ public class player_movement : MonoBehaviour
 
         isGrounded = CheckGrounded();
 
-        //Debug.Log("Is Grounded: " + isGrounded);
+        if (isGrounded && _inputHandler.Jump)
+        {
+            Jump();
+        }
 
-        //if (_inputHandler.Jump && isGrounded)
-        //{
-        //    Jump();
-        //}
+        // Detectar si el jugador está en el suelo y aplicar la gravedad adicional si no lo está
+        if (!isGrounded && rb.linearVelocity.y < 0)  // Si el jugador está cayendo
+        {
+            rb.AddForce(Vector3.down * (jumpForce + 9.81f), ForceMode.Acceleration);  // Añade gravedad manualmente
+        }
 
-        if( x!= 0 )
+        if ( x!= 0 )
         {
             RotateCharacter(x);
         }
@@ -62,10 +66,10 @@ public class player_movement : MonoBehaviour
         runSpeed = new_vel;
     }
 
-    //private void Jump()
-    //{
-    //    rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-    //}
+    private void Jump()
+    {
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+    }
 
     private bool CheckGrounded()
     {
@@ -78,11 +82,6 @@ public class player_movement : MonoBehaviour
 
         Debug.DrawRay(rayOrigin, Vector3.down * 1f, grounded ? Color.green : Color.red);
         return grounded;
-
-
-        //bool grounded = Physics.Raycast(transform.position, Vector3.down, 0.25f, groundLayer);
-        //Debug.DrawRay(transform.position, Vector3.down * 0.25f, grounded ? Color.green : Color.red); // Muestra el raycast en la escena
-        //return grounded;
     }
 
     private void RotateCharacter(float horizontalInput)
