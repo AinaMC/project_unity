@@ -37,4 +37,20 @@ public class WorldManagement : MonoBehaviour
     {
         return estado_mundo;
     }
+
+    private void Update()
+    {
+        //Esquerra
+        if (Input.GetMouseButton(0))
+        {
+            recibir_puntos(-10);
+
+        }
+        //Dreta
+        if (Input.GetMouseButton(1))
+        {
+            recibir_puntos(10);
+        }
+
+    }
 }

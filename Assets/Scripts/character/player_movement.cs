@@ -7,15 +7,15 @@ using UnityEngine;
 public class player_movement : MonoBehaviour
 {
     //Variables
-    public float runSpeed = 7f; // Velocidad de movimiento
-    public float rotationSpeed = 20f; // Velocidad de rotación
-    public float jumpForce = 5f;
+    public float runSpeed = 10f;
+    public float rotationSpeed = 20f;
+    public float jumpForce = 15f;
     private float x, y;
 
     public LayerMask groundLayer;
 
-    public Animator animator; // Referencia al Animator
-    private InputHandler _inputHandler; // Referencia al script InputHandler
+    public Animator animator;
+    private InputHandler _inputHandler;
     private Rigidbody rb;
     private bool isGrounded;
 
@@ -30,18 +30,22 @@ public class player_movement : MonoBehaviour
     {
         // Obtener los valores de movimiento desde InputHandler
         x = _inputHandler.MoveInput.x;  // Horizontal (movimiento de izquierda/derecha)
-        y = _inputHandler.MoveInput.y;  // Vertical (movimiento hacia adelante/atrás)
+        y = _inputHandler.MoveInput.y;  // Vertical (movimiento hacia adelante/atrï¿½s)
 
         isGrounded = CheckGrounded();
 
-        //Debug.Log("Is Grounded: " + isGrounded);
+        if (isGrounded && _inputHandler.Jump)
+        {
+            Jump();
+        }
 
-        //if (_inputHandler.Jump && isGrounded)
-        //{
-        //    Jump();
-        //}
+        // Detectar si el jugador estÃ¡ en el suelo y aplicar la gravedad adicional si no lo estÃ¡
+        if (!isGrounded && rb.linearVelocity.y < 0)  // Si el jugador estÃ¡ cayendo
+        {
+            rb.AddForce(Vector3.down * (jumpForce + 9.81f), ForceMode.Acceleration);
+        }
 
-        if( x!= 0 )
+        if ( x!= 0 )
         {
             RotateCharacter(x);
         }
@@ -56,20 +60,28 @@ public class player_movement : MonoBehaviour
         animator.SetFloat("Vel_Y", y);
     }
 
-    // Método para cambiar la velocidad de movimiento
+    // Metodo para cambiar la velocidad de movimiento
     public void cambiar_vel(float new_vel)
     {
         runSpeed = new_vel;
     }
 
-    //private void Jump()
-    //{
-    //    rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-    //}
+    private void Jump()
+    {
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+    }
 
     private bool CheckGrounded()
     {
-        return Physics.Raycast(transform.position, Vector3.down, 2f, groundLayer);
+
+        Collider _collider = GetComponent<Collider>();
+
+        Vector3 rayOrigin = _collider.bounds.center - Vector3.up * 0.5f;
+
+        bool grounded = Physics.Raycast(rayOrigin, Vector3.down, 1f, groundLayer);
+
+        Debug.DrawRay(rayOrigin, Vector3.down * 1f, grounded ? Color.green : Color.red);
+        return grounded;
     }
 
     private void RotateCharacter(float horizontalInput)
