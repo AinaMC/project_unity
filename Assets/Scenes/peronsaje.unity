@@ -242,9 +242,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NPC_actual: {fileID: 13008428}
   centro: {fileID: 1331236992}
+  nombre: 
   a: {fileID: 0}
   c: {fileID: 0}
   arma: {fileID: 0}
+  soldado: {fileID: 0}
 --- !u!1001 &159815296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -915,6 +917,7 @@ GameObject:
   - component: {fileID: 214902139}
   - component: {fileID: 214902142}
   - component: {fileID: 214902143}
+  - component: {fileID: 214902144}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -934,6 +937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 235f7aff6754f454f84a2dc7f362f41e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  final: {fileID: 0}
 --- !u!4 &214902141
 Transform:
   m_ObjectHideFlags: 0
@@ -976,6 +980,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mundo: {fileID: 214902139}
   barra_mundo: {fileID: 1042575408}
+--- !u!114 &214902144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214902138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99950ef778e5e8d4d8bb31781a000e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dragonPrefab: {fileID: 0}
+  sitioInstanciar: {fileID: 0}
+  mundo: {fileID: 214902139}
 --- !u!1 &277042946
 GameObject:
   m_ObjectHideFlags: 0
@@ -2160,9 +2179,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NPC_actual: {fileID: 1190197678}
   centro: {fileID: 1331236992}
+  nombre: 
   a: {fileID: 0}
   c: {fileID: 0}
   arma: {fileID: 0}
+  soldado: {fileID: 0}
 --- !u!54 &1190197685
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2513,6 +2534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveInput: {x: 0, y: 0, z: 0}
+  Jump: 0
 --- !u!114 &1305725880
 MonoBehaviour:
   m_ObjectHideFlags: 0
