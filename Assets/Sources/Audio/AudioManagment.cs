@@ -9,11 +9,10 @@ public class AudioManagment : MonoBehaviour
     private AudioSource audioA, audioB;
     private AudioSource controlAudio; //llamada al AudioSource (componente de control del audio)
 
-    public WorldManagement contador; //llamando al script WorldManagement -->
+    public WorldManagement contador; //llamando al script WorldManagement
     private float comprobador;
     private void Start()
     {
-        //controlAudio = GetComponent<AudioSource>();
         AudioSource[] sources = GetComponents<AudioSource>();
         audioA = sources[0];
         audioB = sources[1];
@@ -26,8 +25,6 @@ public class AudioManagment : MonoBehaviour
         Debug.Log("Audio cosas ha empezado. Reproduciendo: Neutro");
 
         comprobador = contador.estatus_mundo();
-        //SeleccionAudio(2, 0.2f);
-        //escuchar = GetComponent<AudioListener>();
     }
     private void Update()
     {
