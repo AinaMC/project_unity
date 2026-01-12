@@ -25,12 +25,20 @@ public class ParticlesWater : MonoBehaviour
 
         comprobador = contador.estatus_mundo();
     }
-    
 
+    public enum EstadoAgua
+    {
+        Distopia,
+        Neutro,
+        Utopia
+    }
+    private EstadoAgua estadoActual;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         comprobador = contador.estatus_mundo();
+        EstadoAgua nuevoEstado;
+        nuevoEstado = EstadoAgua.Neutro;
         //AudioManagment.PlaySound(SoundType.SFX);
     }
 
@@ -42,16 +50,7 @@ public class ParticlesWater : MonoBehaviour
             comprobador = contador.estatus_mundo();
             waterChange(comprobador);
         }
-
-        
     }
-    public enum EstadoAgua
-    {
-        Distopia,
-        Neutro,
-        Utopia
-    }
-    private EstadoAgua estadoActual;
 
     private void waterChange(float numComprobador)
     {

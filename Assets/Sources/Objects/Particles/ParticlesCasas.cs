@@ -16,6 +16,7 @@ public class ParticlesCasas : MonoBehaviour
 
     public Transform parentCasas;
     private MeshRenderer[] meshesCasas;
+    public GameObject nomParentCasa;
     public MeshRenderer meshCasa;
 
     ParticleSystem clean;
@@ -24,7 +25,7 @@ public class ParticlesCasas : MonoBehaviour
 
     void Awake()
     {
-        fuego = GameObject.Find("Fuego").GetComponent<ParticleSystem>();
+        //fuego = GameObject.Find("Fuego").GetComponent<ParticleSystem>();
         fuego = GameObject.Find("FuegoCasa").GetComponent<ParticleSystem>();
         clean = GameObject.Find("Clean").GetComponent<ParticleSystem>();
         
@@ -34,10 +35,11 @@ public class ParticlesCasas : MonoBehaviour
         colorFuego = fuego.colorOverLifetime;
         sizeFuego = fuego.sizeOverLifetime;
 
-        meshesCasas = parentCasas.GetComponentsInChildren<MeshRenderer>();
-        Debug.Log("Se han encontrado " + meshesCasas.Length + " casas.");
-
         mainLimpio = clean.main;
+        shapeLimpio = clean.shape;
+
+        meshesCasas = parentCasas.GetComponentsInChildren<MeshRenderer>(true);
+        Debug.Log("Casas encontradas: " + meshesCasas.Length);
     }
 
 
@@ -50,25 +52,31 @@ public class ParticlesCasas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (comprobador != contador.estatus_mundo())
+        if (comprobador > 70)
         {
-            comprobador = contador.estatus_mundo();
-            fireChange(comprobador); //fuego
             cleanChange(comprobador); //limpio
+        }
+        else if (comprobador < 30)
+        {
+            fireChange(comprobador); //fuego
+        }
+        else
+        {
+            return;
         }
     }
 
     private void fireChange(float numComprobador)
     {
-        if (numComprobador < 30) //random por distopia
+        if (meshesCasas.Length > 0)
         {
-            if (meshesCasas.Length > 0)
-            {
-                int index = Random.Range(0, meshesCasas.Length);
-                shapeFuego.shapeType = ParticleSystemShapeType.Mesh;
-                shapeFuego.mesh = meshesCasas[index].GetComponent<MeshFilter>().sharedMesh;
-                Debug.Log("Se quema una casa");
-            }
+            int index = Random.Range(0, meshesCasas.Length);
+            MeshRenderer casa = meshesCasas[index];
+
+            shapeFuego.shapeType = ParticleSystemShapeType.Mesh;
+            shapeFuego.mesh = casa.GetComponent<MeshFilter>().sharedMesh;
+
+            Debug.Log("Se quema la casa: " + casa.name);
         }
 
         if (numComprobador <= 40) //IMPORTANTE este deberia ser al pasar un rato con el pequeño
@@ -120,16 +128,15 @@ public class ParticlesCasas : MonoBehaviour
     
     private void cleanChange(float numComprobador)
     {
-        //activar o desactivar, que pille mesh de casas de manera random al estar a 70-80, y mientras haya pasado un tiempo sin acciones malas. Al bajar de 70 se las particulas clean desaparecen
-        if (numComprobador > 70)
+        if (meshesCasas.Length > 0)
         {
-            if (meshesCasas.Length > 0)
-            {
-                int index = Random.Range(0, meshesCasas.Length);
-                shapeLimpio.shapeType = ParticleSystemShapeType.Mesh;
-                shapeLimpio.mesh = meshesCasas[index].GetComponent<MeshFilter>().sharedMesh;
-                Debug.Log("Hay una casa más limpia");
-            }
+            int index = Random.Range(0, meshesCasas.Length);
+            MeshRenderer casa = meshesCasas[index];
+
+            shapeLimpio.shapeType = ParticleSystemShapeType.Mesh;
+            shapeLimpio.mesh = casa.GetComponent<MeshFilter>().sharedMesh;
+
+            Debug.Log("Se limpió la casa: " + casa.name);
         }
     }
 
