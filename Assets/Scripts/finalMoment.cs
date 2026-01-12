@@ -51,7 +51,7 @@ public class finalMoment : MonoBehaviour
         {
             cuenta_atras = cuenta_atras - 0.1f;
             barra_contador.fillAmount = cuenta_atras / MAX_cuenta;
-
+            finalText.text = "Fin";
         }
         else if (crono_activado == false && cuenta_atras > 0)
         {
