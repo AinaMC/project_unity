@@ -43,7 +43,7 @@ public class TimeManager : MonoBehaviour
     [Header("Emissió fanals")]
     public Color colorEmissiu = Color.white;
     public float intensitatEmissiva = 2f;
-
+       
     void Update()
     {
         ActualitzarLlums();
@@ -122,7 +122,6 @@ public class TimeManager : MonoBehaviour
         sol.color = solG.Evaluate(1f - blend);
         lluna.color = llunaG.Evaluate(blend);
 
-       
     }
 
     Gradient SeleccionarGradient(Gradient neutral, Gradient utopic, Gradient distopic)
