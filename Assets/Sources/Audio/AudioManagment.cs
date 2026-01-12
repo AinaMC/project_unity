@@ -2,24 +2,18 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-
 public class AudioManagment : MonoBehaviour
 {
-    //private static AudioManagment instance;
-
     [SerializeField] private AudioClip[] audios; //array en donde cada elemento será un clip de audio
 
     private AudioSource audioA, audioB;
     private AudioSource controlAudio; //llamada al AudioSource (componente de control del audio)
 
-    public WorldManagement contador; //llamando al script WorldManagement
+    public WorldManagement contador; //llamando al script WorldManagement -->
     private float comprobador;
-    //private void Awake()
-    //{
-    //    instance = this;
-    //}
     private void Start()
     {
+        //controlAudio = GetComponent<AudioSource>();
         AudioSource[] sources = GetComponents<AudioSource>();
         audioA = sources[0];
         audioB = sources[1];
@@ -32,6 +26,8 @@ public class AudioManagment : MonoBehaviour
         Debug.Log("Audio cosas ha empezado. Reproduciendo: Neutro");
 
         comprobador = contador.estatus_mundo();
+        //SeleccionAudio(2, 0.2f);
+        //escuchar = GetComponent<AudioListener>();
     }
     private void Update()
     {
@@ -40,6 +36,7 @@ public class AudioManagment : MonoBehaviour
             comprobador = contador.estatus_mundo();
             changeAudio(comprobador);
         }
+
     }
 
     //crossfade
@@ -98,11 +95,6 @@ public class AudioManagment : MonoBehaviour
         }
 
         //inicializa el crossfade
-        StartCoroutine(Crossfade(indiceDeseado, volumen, 2.3f)); //crossfade con indice, volumen y duración del crossfade
+        StartCoroutine(Crossfade(indiceDeseado, volumen, 2.3f));
     }
-    
-    //public void playSound(int index, float volume = 1)
-    //{
-    //    instance.controlAudio.PlayOneShot(instance.audios[index]);
-    //}
 }
