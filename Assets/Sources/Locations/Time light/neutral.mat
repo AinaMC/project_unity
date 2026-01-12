@@ -28,16 +28,16 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture1:
-        m_Texture: {fileID: 2800000, guid: 3029d803aab4ce14babc13d3572c4d2a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3150856a70350904399f26632079fde5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2:
-        m_Texture: {fileID: 2800000, guid: ef9edb16ee05e474a862f1ddda99d1fd, type: 3}
+        m_Texture: {fileID: 2800000, guid: a9029c708d91de946ac55fb495d0410d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Blend: 0.55685544
+    - _Blend: 0.54543495
     - _Exposure1: 1
     - _Exposure2: 1
     - _Glossiness: 0.5
