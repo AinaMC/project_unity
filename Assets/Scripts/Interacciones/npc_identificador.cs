@@ -18,6 +18,8 @@ public class npc_identificador : MonoBehaviour
     public arma arma;
     public soldado_quieto soldado;
 
+    [Header("Animator")]//dividir en el editor visualmente
+    public Animator animacion;
     void Start()
     {
         nombre = "";
@@ -72,8 +74,8 @@ public class npc_identificador : MonoBehaviour
             {
                 //Animal
                 if (nombre == "Animal")
-                {
-                    a.accion_mala();
+                {   
+                    a.accion_mala(NPC_actual, animacion);
                 }
                 //Comerciante
                 if (nombre == "Comerciante")
@@ -104,7 +106,7 @@ public class npc_identificador : MonoBehaviour
                 //Animal
                 if (nombre == "Animal")
                 {
-                    a.accion_buena();
+                    a.accion_buena(animacion);
                 }
                 //Comerciante
                 if (nombre == "Comerciante")
