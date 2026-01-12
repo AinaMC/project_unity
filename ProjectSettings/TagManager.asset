@@ -10,6 +10,8 @@ TagManager:
   - houses
   - Arma
   - Soldado
+  - Angel
+  - Demonio
   layers:
   - Default
   - TransparentFX

@@ -10,7 +10,6 @@ public class soldado_quieto : MonoBehaviour
     //Centro Interacci�n
     public centro_interaccion centro;
     public WorldManagement control_mundo;
-    public Animator anim;
 
     public void texto()
     {
@@ -27,7 +26,7 @@ public class soldado_quieto : MonoBehaviour
     public void accion_mala()
     {
 
-        anim.SetTrigger("mala_accion");
+        //anim.SetTrigger("mala_accion");
         //Debug.Log("Opcion Mala");
         control_mundo.recibir_puntos(-3.5f);
     }

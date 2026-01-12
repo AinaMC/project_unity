@@ -17,6 +17,8 @@ public class npc_identificador : MonoBehaviour
     public comerciante c;
     public arma arma;
     public soldado_quieto soldado;
+    public demonio demonio;
+    public angel angel;
 
     [Header("Animator")]//dividir en el editor visualmente
     public Animator animacion;
@@ -55,8 +57,19 @@ public class npc_identificador : MonoBehaviour
                 soldado.texto();
                 Debug.Log("NPC SOLDADO");
             }
+            if (NPC_actual.gameObject.CompareTag("Demonio"))
+            {
+                nombre = "Demonio";
+                demonio.texto();
+                Debug.Log("NPC DEMONIO");
+            }
+            if (NPC_actual.gameObject.CompareTag("Angel"))
+            {
+                nombre = "Angel";
+                angel.texto();
+                Debug.Log("NPC ANGEL");
+            }
             //desbloquear cursor
-
             //Cursor.lockState = CursorLockMode.Confined;
 
             nombre = NPC_actual.gameObject.tag;
@@ -92,6 +105,16 @@ public class npc_identificador : MonoBehaviour
                 {
                     soldado.accion_mala();
                 }
+                //Demonio
+                if (nombre == "Demonio")
+                {
+                    demonio.accion_mala();
+                }
+                //Angel
+                if (nombre == "Angel")
+                {
+                    angel.accion_mala();
+                }
                 Debug.Log("Opcion Mala");
                 centro.opacidad(0f);
 
@@ -123,6 +146,16 @@ public class npc_identificador : MonoBehaviour
                 if (nombre == "Soldado")
                 {
                     soldado.accion_buena();
+                }
+                //Demonio
+                if (nombre == "Demonio")
+                {
+                    demonio.accion_buena();
+                }
+                //Angel
+                if (nombre == "Angel")
+                {
+                    angel.accion_buena();
                 }
                 Debug.Log("Opcion Buena");
                 centro.opacidad(0f);

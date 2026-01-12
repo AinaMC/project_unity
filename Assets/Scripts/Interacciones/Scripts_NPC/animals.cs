@@ -12,8 +12,7 @@ public class animals : MonoBehaviour
     //Centro Interacción
     public centro_interaccion centro;
     public WorldManagement control_mundo;
-    //Bool
-    bool isdead = false;
+
 
     public void texto()
     {
