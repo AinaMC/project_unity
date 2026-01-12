@@ -20,12 +20,13 @@ public class player_movement : MonoBehaviour
     private bool isGrounded;
     public WorldManagement mundo;
 
+
     void Start()
     {
         // Obtener la referencia del InputHandler
         _inputHandler = GetComponent<InputHandler>();
         rb = GetComponent<Rigidbody>();
-        jumpForce = 15f;
+        jumpForce = 20f;
     }
 
     void Update()
@@ -36,8 +37,9 @@ public class player_movement : MonoBehaviour
 
         isGrounded = CheckGrounded();
 
-        if (isGrounded && _inputHandler.Jump)
+        if (isGrounded && _inputHandler.Jump )
         {
+
             Jump();
         }
 
@@ -61,13 +63,13 @@ public class player_movement : MonoBehaviour
         animator.SetFloat("Vel_X", x);
         animator.SetFloat("Vel_Y", y);
 
-        if ( mundo.estatus_mundo() > 70 )
-        {
-            jumpForce = 25f * Time.deltaTime;
-        }
+        float mundo_actual = mundo.estatus_mundo();
+        change_Jump(mundo_actual);
     }
     void change_Jump(float x)
     {
+
+            jumpForce = x - 10;
 
     }
     // Metodo para cambiar la velocidad de movimiento
@@ -79,6 +81,7 @@ public class player_movement : MonoBehaviour
     private void Jump()
     {
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        animator.SetTrigger("isJump");
     }
 
     private bool CheckGrounded()

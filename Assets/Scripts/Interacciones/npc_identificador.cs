@@ -103,6 +103,7 @@ public class npc_identificador : MonoBehaviour
                 //Soldado
                 if (nombre == "Soldado")
                 {
+                    animacion.SetTrigger("mala_accion");
                     soldado.accion_mala();
                 }
                 //Demonio
