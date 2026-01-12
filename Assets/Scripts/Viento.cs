@@ -6,7 +6,6 @@ public class Viento : MonoBehaviour
 {
     public player_movement mov;
     public WorldManagement estado;
-    //public Transform wind;
     
     //Viento a Favor o en Contra
     //Neutral --> 21-79
@@ -14,10 +13,11 @@ public class Viento : MonoBehaviour
     //Distopico (en contra) --> 80-100
 
 
-    void FixedUpdate()
-    {        
-        ParticleSystem ps = GetComponent<ParticleSystem>();  
-        //var ex = ps.externalForces;
+    void Update()
+    {
+        //Particles
+        ParticleSystem ps = GetComponent<ParticleSystem>();
+        var colorViento = ps.colorOverLifetime;
         var main = ps.main;
         var transf = ps.transform;
 
@@ -44,15 +44,19 @@ public class Viento : MonoBehaviour
 
     //Activar/Desactivar sistema particules
     public void viento_favor(ParticleSystem.MainModule main)
-    {            
+    {
+        mov.cambiar_vel(15f);
+        //Viento
         main.startLifetime = 5f;
         main.startSpeed = 55f;
-        mov.cambiar_vel(6f);
+        main.startColor = new Color(1f, 0.8f, 0.4f);
     }
     public void viento_contra(ParticleSystem.MainModule main)
     {
+        mov.cambiar_vel(4f);
+        //Viento
         main.startLifetime = 5f;
         main.startSpeed = 5f;
-        mov.cambiar_vel(1f);
+        main.startColor = new Color(0f, 0f, 0f);
     }
 }

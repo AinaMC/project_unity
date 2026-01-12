@@ -7,8 +7,8 @@ public class CameraVerticalMovement : MonoBehaviour
 
 
     public float rotationSpeed = 100f; // velocidad de rotación
-    public float minX = -45f;          // límite inferior total
-    public float maxX = 45f;           // límite superior total
+    public float minX = -28f;          // límite inferior total
+    public float maxX = 30f;           // límite superior total
 
     private float currentX = 0f;       // rotación acumulada total
 

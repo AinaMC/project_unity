@@ -6,24 +6,28 @@ using UnityEngine;
 
 public class player_movement : MonoBehaviour
 {
-    //Variables
-    public float runSpeed = 10f;
+    [Header("Variables")]
+    public float runSpeed;
     public float rotationSpeed = 20f;
-    public float jumpForce = 15f;
+    public float jumpForce; //Cambiar este en mov
     private float x, y;
 
+    [Header("Anim y Mov")]
     public LayerMask groundLayer;
-
     public Animator animator;
     private InputHandler _inputHandler;
     private Rigidbody rb;
     private bool isGrounded;
+    public WorldManagement mundo;
+
 
     void Start()
     {
         // Obtener la referencia del InputHandler
         _inputHandler = GetComponent<InputHandler>();
         rb = GetComponent<Rigidbody>();
+        jumpForce = 20f;
+        runSpeed = 10f;
     }
 
     void Update()
@@ -34,8 +38,9 @@ public class player_movement : MonoBehaviour
 
         isGrounded = CheckGrounded();
 
-        if (isGrounded && _inputHandler.Jump)
+        if (isGrounded && _inputHandler.Jump )
         {
+
             Jump();
         }
 
@@ -58,17 +63,25 @@ public class player_movement : MonoBehaviour
         // Pasar los valores de movimiento al Animator
         animator.SetFloat("Vel_X", x);
         animator.SetFloat("Vel_Y", y);
-    }
 
+        float mundo_actual = mundo.estatus_mundo();
+        change_Jump(mundo_actual);
+
+    }
+    void change_Jump(float x)
+    {
+            jumpForce = x - 10;
+    }
     // Metodo para cambiar la velocidad de movimiento
     public void cambiar_vel(float new_vel)
     {
-        runSpeed = new_vel;
+        runSpeed = new_vel + 1 * Time.deltaTime;
     }
 
     private void Jump()
     {
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        animator.SetTrigger("isJump");
     }
 
     private bool CheckGrounded()
@@ -99,4 +112,5 @@ public class player_movement : MonoBehaviour
 
         rb.MovePosition(rb.position + moveDirection * runSpeed * Time.deltaTime);
     }
+
 }

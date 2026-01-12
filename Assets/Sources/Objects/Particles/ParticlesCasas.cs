@@ -1,0 +1,197 @@
+using System.Diagnostics.CodeAnalysis;
+//using System.Drawing;
+using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+
+public class ParticlesCasas : MonoBehaviour
+{
+    public WorldManagement contador; //llamando al script WorldManagement
+    private float comprobador;
+
+    //sistema particulas fuego
+    ParticleSystem fuego;
+    ParticleSystem.MainModule mainFuego;
+    ParticleSystem.EmissionModule emissionFuego;
+    ParticleSystem.ShapeModule shapeFuego;
+    ParticleSystem.ColorOverLifetimeModule colorFuego;
+    ParticleSystem.SizeOverLifetimeModule sizeFuego;
+
+    //sistema particulas clean
+    ParticleSystem clean;
+    ParticleSystem.MainModule mainLimpio;
+    ParticleSystem.ShapeModule shapeLimpio;
+
+    //mesh casas/edificios
+    public Transform parentCasas;
+    private MeshRenderer[] meshesCasas;
+    public GameObject nomParentCasa;
+    public MeshRenderer meshCasa;
+
+    //meshCasa = GameObject.Find("RH" + int).GetComponent<MeshRenderer>();
+
+    void Awake()
+    {
+        //fuego = GameObject.Find("Fuego").GetComponent<ParticleSystem>();
+        fuego = GameObject.Find("FuegoCasa").GetComponent<ParticleSystem>();
+        clean = GameObject.Find("Clean").GetComponent<ParticleSystem>();
+
+        mainFuego = fuego.main;
+        emissionFuego = fuego.emission;
+        shapeFuego = fuego.shape;
+        colorFuego = fuego.colorOverLifetime;
+        sizeFuego = fuego.sizeOverLifetime;
+
+        mainLimpio = clean.main;
+        shapeLimpio = clean.shape;
+
+        meshesCasas = parentCasas.GetComponentsInChildren<MeshRenderer>(true);
+        Debug.Log("Casas encontradas: " + meshesCasas.Length);
+    }
+
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        if (comprobador != contador.estatus_mundo())
+        {
+            comprobador = contador.estatus_mundo();
+            Update();
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (comprobador >= 70) //utopico
+        {
+            cleanChange(meshesCasas.Length); //limpio
+        }
+        else if (comprobador <= 30) //distopico
+        {
+            fireChange(meshesCasas.Length); //fuego
+        }
+        else //neutro
+        {
+            return;
+        }
+    }
+
+    private void fireChange(int numCasas)
+    {
+        int index = Random.Range(0, meshesCasas.Length);
+        MeshRenderer casa = meshesCasas[index];
+
+        shapeFuego.shapeType = ParticleSystemShapeType.Mesh;
+        shapeFuego.mesh = casa.GetComponent<MeshFilter>().sharedMesh;
+
+        fuego.Clear();
+        fuego.Play();
+
+        Debug.Log("Se quema la casa: " + casa.name);
+    }
+
+    /*
+    //if (numComprobador <= 40) //IMPORTANTE este deberia ser al pasar un rato con el pequeño
+    //{
+    //    mainFuego.startLifetime = 10f;
+    //    mainFuego.startSize = new ParticleSystem.MinMaxCurve(0.5f, 3.5f);
+    //    emissionFuego.rateOverTime = 50;
+
+    //    shapeFuego.shapeType = ParticleSystemShapeType.Mesh;
+    //    shapeFuego.mesh = meshCasa.GetComponent<MeshFilter>().sharedMesh;
+
+    //    colorFuego.enabled = true;
+    //    Gradient grad = new Gradient();
+    //    grad.SetKeys(
+    //        new GradientColorKey[]
+    //    {
+    //        new GradientColorKey(new Color(1f, 0.78f, 0f), 0.08f), //amarillo
+    //        new GradientColorKey(new Color(0.82f, 0.047f, 0f), 0.2f), //rojo
+    //        new GradientColorKey(Color.black, 0.58f), //negro
+    //    },
+    //        new GradientAlphaKey[]
+    //        {
+    //            new GradientAlphaKey(1f, 0.7f), //al 70% = opaco
+    //            new GradientAlphaKey(0.6f, 1f) //al final = casi transparente
+    //        }
+    //    );
+    //    colorFuego.color = grad;
+
+    //    sizeFuego.enabled = true;
+    //    sizeFuego.y = new ParticleSystem.MinMaxCurve(1f, new AnimationCurve(
+    //            new Keyframe(0f, 0f),  // inicio de la vida
+    //            new Keyframe(0.5f, 1f),  // mitad de la vida
+    //            new Keyframe(1f, 0f)   // final de la vida
+    //    ));
+    //    sizeFuego.z = new ParticleSystem.MinMaxCurve(1f, new AnimationCurve(
+    //        new Keyframe(0f, 0f),  // inicio de la vida
+    //        new Keyframe(0.5f, 1f),  // mitad de la vida
+    //        new Keyframe(1f, 0f)   // final de la vida
+    //    ));
+
+    //    //llamar a script audio y poner audio de quemandose
+
+    //    fuego.Clear();
+    //    fuego.Play();
+
+    //    Debug.Log("Se ha cambiado el fuego pequeño a fuego casa");
+    //}
+}
+    */
+
+    private void cleanChange(int numCasas)
+    {
+        if (meshesCasas.Length > 0)
+        {
+            int index = Random.Range(0, meshesCasas.Length);
+            MeshRenderer casa = meshesCasas[index];
+
+            shapeLimpio.shapeType = ParticleSystemShapeType.Mesh;
+            shapeLimpio.mesh = casa.GetComponent<MeshFilter>().sharedMesh;
+
+            clean.Clear();
+            clean.Play();
+
+            Debug.Log("Se limpió la casa: " + casa.name);
+        }
+    }
+
+    private void Desactivar() //a partir de jugador
+    {
+        if (fuego == true)
+        {
+            fuego.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        }
+        else
+        {
+            int index = Random.Range(0, meshesCasas.Length); //en vez de random, por colider
+            MeshRenderer casa = meshesCasas[index];
+
+            shapeLimpio.shapeType = ParticleSystemShapeType.Mesh;
+            shapeLimpio.mesh = casa.GetComponent<MeshFilter>().sharedMesh;
+
+            clean.Clear();
+            clean.Play();
+        }
+    }
+
+    private void Quemar() //a partir de jugador
+    {
+        if (clean == true)
+        {
+            clean.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        }
+        int index = Random.Range(0, meshesCasas.Length); //en vez de random, por colider
+        MeshRenderer casa = meshesCasas[index];
+
+        shapeFuego.shapeType = ParticleSystemShapeType.Mesh;
+        shapeFuego.mesh = casa.GetComponent<MeshFilter>().sharedMesh;
+
+        fuego.Clear();
+        fuego.Play();
+
+        Debug.Log("Se quema la casa: " + casa.name);
+    }
+
+}

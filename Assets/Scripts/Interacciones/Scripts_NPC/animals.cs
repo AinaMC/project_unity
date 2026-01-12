@@ -1,4 +1,5 @@
-
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,21 +13,26 @@ public class animals : MonoBehaviour
     public centro_interaccion centro;
     public WorldManagement control_mundo;
 
+
     public void texto()
     {
         //Seteamos los textos
         buena.text = "Acariciar";
-        mala.text = "Patear";
+        mala.text = "Pegar";
     }
 
-    public void accion_buena()
+    public void accion_buena(Animator anim)
+
     {
         //Debug.Log("Opcion Buena");
-        control_mundo.recibir_puntos(1.5f);
+        control_mundo.recibir_puntos(10.5f);
+        anim.SetTrigger("acariciar");
     }
-    public void accion_mala()
+    public void accion_mala(Animator anim)
     {
         //Debug.Log("Opcion Mala");
-        control_mundo.recibir_puntos(-1.5f);
+        anim.SetTrigger("pegar");
+       
+        control_mundo.recibir_puntos(-10.5f);
     }
 }

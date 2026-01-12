@@ -8,19 +8,25 @@ using UnityEngine.UI;
 public class npc_identificador : MonoBehaviour
 {
     public GameObject NPC_actual;
-    //Centro Interacción
+    //Centro Interacciï¿½n
     public centro_interaccion centro;
     public string nombre= "";
+    public bool isGameFinished;
 
     [Header("NPC-Scripts")]//dividir en el editor visualmente
     public animals a;
     public comerciante c;
     public arma arma;
     public soldado_quieto soldado;
+    public demonio demonio;
+    public angel angel;
 
+    [Header("Animator")]//dividir en el editor visualmente
+    public Animator animacion;
     void Start()
     {
         nombre = "";
+        isGameFinished = false;
     }
     //Entrar en la zona
     void OnCollisionEnter(Collision other)
@@ -53,25 +59,44 @@ public class npc_identificador : MonoBehaviour
                 soldado.texto();
                 Debug.Log("NPC SOLDADO");
             }
+            if (NPC_actual.gameObject.CompareTag("Demonio"))
+            {
+                nombre = "Demonio";
+                demonio.texto();
+                Debug.Log("NPC DEMONIO");
+            }
+            if (NPC_actual.gameObject.CompareTag("Angel"))
+            {
+                nombre = "Angel";
+                angel.texto();
+                Debug.Log("NPC ANGEL");
+            }
             //desbloquear cursor
             //Cursor.lockState = CursorLockMode.Confined;
+
             nombre = NPC_actual.gameObject.tag;
             FixedUpdate();
         }          
 
     }
 
+    public void game_finished(int x)
+    {
+        isGameFinished = true;
+    }
     private void FixedUpdate()
     {
-        if (nombre != "")
+        isGameFinished = centro.theEnd();
+
+        if (nombre != "" && !isGameFinished)
         {
             //Accion Mala
             if (Input.GetMouseButtonDown(0))
             {
                 //Animal
                 if (nombre == "Animal")
-                {
-                    a.accion_mala();
+                {   
+                    a.accion_mala(animacion);
                 }
                 //Comerciante
                 if (nombre == "Comerciante")
@@ -86,7 +111,18 @@ public class npc_identificador : MonoBehaviour
                 //Soldado
                 if (nombre == "Soldado")
                 {
+                    animacion.SetTrigger("mala_accion");
                     soldado.accion_mala();
+                }
+                //Demonio
+                if (nombre == "Demonio")
+                {
+                    demonio.accion_mala();
+                }
+                //Angel
+                if (nombre == "Angel")
+                {
+                    angel.accion_mala();
                 }
                 Debug.Log("Opcion Mala");
                 centro.opacidad(0f);
@@ -102,7 +138,7 @@ public class npc_identificador : MonoBehaviour
                 //Animal
                 if (nombre == "Animal")
                 {
-                    a.accion_buena();
+                    a.accion_buena(animacion);
                 }
                 //Comerciante
                 if (nombre == "Comerciante")
@@ -119,6 +155,16 @@ public class npc_identificador : MonoBehaviour
                 if (nombre == "Soldado")
                 {
                     soldado.accion_buena();
+                }
+                //Demonio
+                if (nombre == "Demonio")
+                {
+                    demonio.accion_buena();
+                }
+                //Angel
+                if (nombre == "Angel")
+                {
+                    angel.accion_buena();
                 }
                 Debug.Log("Opcion Buena");
                 centro.opacidad(0f);

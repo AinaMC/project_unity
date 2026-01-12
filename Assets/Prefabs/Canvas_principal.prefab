@@ -401,7 +401,7 @@ GameObject:
   - component: {fileID: 6801195923196807753}
   - component: {fileID: 4280569596908152845}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Estado mundo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
