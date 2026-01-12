@@ -54,7 +54,7 @@ public class InputHandler : MonoBehaviour
         mundo_actual = mundo.estatus_mundo();
 
         //Mundo normal
-        if (mundo_actual < 75 || mundo_actual > 25)
+        if (mundo_actual == 50 )
         {
             horizontalInput = "Horizontal";  // Mantener controles estándar
             verticalInput = "Vertical";  // Mantener controles estándar
@@ -63,11 +63,11 @@ public class InputHandler : MonoBehaviour
             Debug.Log("Controles asignados para mundo neutral");
 
         }
-        else if (mundo_actual >= 75) //Mundo utopico
+        else if (mundo_actual > 50) //Mundo utopico
         {
             Debug.Log("Utopico");
         }
-        else if (mundo_actual <= 25) //Mundo distopico
+        else if (mundo_actual < 50) //Mundo distopico
         {
             Debug.Log("Distopico");
 
