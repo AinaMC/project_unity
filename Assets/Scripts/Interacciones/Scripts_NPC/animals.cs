@@ -19,7 +19,7 @@ public class animals : MonoBehaviour
     {
         //Seteamos los textos
         buena.text = "Acariciar";
-        mala.text = "Matar";
+        mala.text = "Pegar";
     }
 
     public void accion_buena(Animator anim)
@@ -29,15 +29,11 @@ public class animals : MonoBehaviour
         control_mundo.recibir_puntos(10.5f);
         anim.SetTrigger("acariciar");
     }
-    public void accion_mala(GameObject animal_actual, Animator anim)
+    public void accion_mala(Animator anim)
     {
         //Debug.Log("Opcion Mala");
-        if (!isdead)
-        {
-            isdead = true;
-            anim.SetBool("isdead", true);
-        }
+        anim.SetTrigger("pegar");
+       
         control_mundo.recibir_puntos(-10.5f);
-        Destroy(animal_actual, 5);
     }
 }

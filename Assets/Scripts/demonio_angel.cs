@@ -2,22 +2,28 @@ using UnityEngine;
 
 public class demonio_angel : MonoBehaviour
 {
-    public dragon dragonPrefab;
+    [Header("Demonio")]
+    public GameObject demonPrefab;
     public Transform sitioInstanciarDemonio;
-    public Transform sitioInstanciarAngel;
-    public WorldManagement mundo;
     bool isDemonHere;
+
+    [Header("Angel")]
+    public GameObject angelPrefab;
+    public Transform sitioInstanciarAngel;
     bool isAngelHere;
+
+    [Header("Mundo")]
+    public WorldManagement mundo;
 
     private void Start()
     {
         //Demonio
-        sitioInstanciarDemonio.position = new Vector3(-134.52f, 0.245f, -43.56f);
-        sitioInstanciarDemonio.rotation = Quaternion.Euler(0, 66, 0);
+        //sitioInstanciarDemonio.position = new Vector3(-134.52f, 0.245f, -43.56f);
+        //sitioInstanciarDemonio.rotation = Quaternion.Euler(0, 66, 0);
 
         //Angel
-        sitioInstanciarAngel.position = new Vector3(-134.52f, 0.245f, -43.56f);
-        sitioInstanciarAngel.rotation = Quaternion.Euler(0, 66, 0);
+        //sitioInstanciarAngel.position = new Vector3(-134.52f, 0.245f, -43.56f);
+        //sitioInstanciarAngel.rotation = Quaternion.Euler(0, 66, 0);
 
         isDemonHere = false;
         isAngelHere = false;
@@ -46,11 +52,11 @@ public class demonio_angel : MonoBehaviour
     }
     void aparecerAngel()
     {
-        var angelito = Instantiate(dragonPrefab, sitioInstanciarAngel.position, sitioInstanciarAngel.rotation);
+       // var angelito = Instantiate(dragonPrefab, sitioInstanciarAngel.position, sitioInstanciarAngel.rotation);
     }
     void aparecerDemonio()
     {
-        var demoncete = Instantiate(dragonPrefab, sitioInstanciarDemonio.position, sitioInstanciarDemonio.rotation);
+        //var demoncete = Instantiate(dragonPrefab, sitioInstanciarDemonio.position, sitioInstanciarDemonio.rotation);
     }
 
     //void eliminarAngel()

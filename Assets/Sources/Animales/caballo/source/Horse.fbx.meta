@@ -592,7 +592,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: HorseALL_IdleEars
+      name: IdleEars
       takeName: HorseALL_IdleEars
       internalID: -1098968171616438275
       firstFrame: 0
@@ -603,7 +603,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -737,18 +737,18 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: HorseALL_GetUp
+      name: GetUp
       takeName: HorseALL_GetUp
       internalID: -4570017124380790457
       firstFrame: 0
-      lastFrame: 798
+      lastFrame: 133
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
+      hasAdditiveReferencePose: 1
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

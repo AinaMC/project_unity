@@ -75,7 +75,7 @@ public class npc_identificador : MonoBehaviour
                 //Animal
                 if (nombre == "Animal")
                 {   
-                    a.accion_mala(NPC_actual, animacion);
+                    a.accion_mala(animacion);
                 }
                 //Comerciante
                 if (nombre == "Comerciante")
