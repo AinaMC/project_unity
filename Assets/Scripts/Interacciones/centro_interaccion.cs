@@ -11,6 +11,7 @@ public class centro_interaccion : MonoBehaviour
     //Textos
     [SerializeField] TMP_Text opcion_mala;
     [SerializeField] TMP_Text opcion_buena;
+    public bool isGameFinished;
 
     void Start()
     {
@@ -28,5 +29,10 @@ public class centro_interaccion : MonoBehaviour
     public void opacidad(float nueva_opacidad)
     {
         grup.alpha = Mathf.Lerp(0f, nueva_opacidad, 5f);
+    }
+
+    public bool theEnd()
+    {
+        return isGameFinished;
     }
 }

@@ -8,7 +8,7 @@ public class finalMoment : MonoBehaviour
 {
     //public GameObject gameOverUI;
     private bool theEnd = false;
-
+    public centro_interaccion centro;
     [Header("Identificar mundo")]
     public int final_mundo;
     //Canvas
@@ -85,7 +85,7 @@ public class finalMoment : MonoBehaviour
 
      void finJuego()
     {
-        //gameOverUI.SetActive(true);
+
         //Acaba utopico
         if (final_mundo == 1)
         {
@@ -102,7 +102,7 @@ public class finalMoment : MonoBehaviour
             fondo_grup.alpha = Mathf.Lerp(0f, 1f, 5f);
             finalText.text = "No continues, has hecho suficiente daño";
         }
-
+        centro.isGameFinished = true;
     }
 
 

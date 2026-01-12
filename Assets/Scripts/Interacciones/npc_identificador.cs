@@ -11,6 +11,7 @@ public class npc_identificador : MonoBehaviour
     //Centro Interacci�n
     public centro_interaccion centro;
     public string nombre= "";
+    public bool isGameFinished;
 
     [Header("NPC-Scripts")]//dividir en el editor visualmente
     public animals a;
@@ -25,6 +26,7 @@ public class npc_identificador : MonoBehaviour
     void Start()
     {
         nombre = "";
+        isGameFinished = false;
     }
     //Entrar en la zona
     void OnCollisionEnter(Collision other)
@@ -78,9 +80,15 @@ public class npc_identificador : MonoBehaviour
 
     }
 
+    public void game_finished(int x)
+    {
+        isGameFinished = true;
+    }
     private void FixedUpdate()
     {
-        if (nombre != "")
+        isGameFinished = centro.theEnd();
+
+        if (nombre != "" && !isGameFinished)
         {
             //Accion Mala
             if (Input.GetMouseButtonDown(0))
