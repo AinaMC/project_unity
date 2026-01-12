@@ -6,24 +6,26 @@ using UnityEngine;
 
 public class player_movement : MonoBehaviour
 {
-    //Variables
+    [Header("Variables")]
     public float runSpeed = 10f;
     public float rotationSpeed = 20f;
-    public float jumpForce = 15f;
+    public float jumpForce; //Cambiar este en mov
     private float x, y;
 
+    [Header("Anim y Mov")]
     public LayerMask groundLayer;
-
     public Animator animator;
     private InputHandler _inputHandler;
     private Rigidbody rb;
     private bool isGrounded;
+    public WorldManagement mundo;
 
     void Start()
     {
         // Obtener la referencia del InputHandler
         _inputHandler = GetComponent<InputHandler>();
         rb = GetComponent<Rigidbody>();
+        jumpForce = 15f;
     }
 
     void Update()
@@ -58,8 +60,16 @@ public class player_movement : MonoBehaviour
         // Pasar los valores de movimiento al Animator
         animator.SetFloat("Vel_X", x);
         animator.SetFloat("Vel_Y", y);
-    }
 
+        if ( mundo.estatus_mundo() > 70 )
+        {
+            jumpForce = 25f * Time.deltaTime;
+        }
+    }
+    void change_Jump(float x)
+    {
+
+    }
     // Metodo para cambiar la velocidad de movimiento
     public void cambiar_vel(float new_vel)
     {
@@ -99,4 +109,5 @@ public class player_movement : MonoBehaviour
 
         rb.MovePosition(rb.position + moveDirection * runSpeed * Time.deltaTime);
     }
+
 }

@@ -54,6 +54,5 @@ public class WorldManagement : MonoBehaviour
         {
             final.cancelar_final();
         }
-
     }
 }
