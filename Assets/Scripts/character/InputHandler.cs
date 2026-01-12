@@ -69,8 +69,11 @@ public class InputHandler : MonoBehaviour
         }
         else if (mundo_actual < 50) //Mundo distopico
         {
-            Debug.Log("Distopico");
+            horizontalInput = "HorizontalNegative";  // Invertir los controles
+            verticalInput = "VerticalNegative";  // Invertir los controles
+            jumpKey = KeyCode.LeftShift;
 
+            Debug.Log("Distopico");
         }
     }
 }
