@@ -16,6 +16,22 @@ public class WorldManagement : MonoBehaviour
         recibir_puntos(0f);
     }
 
+    private void Update()
+    {
+        //Esquerra
+        if (Input.GetMouseButton(0))
+        {
+            recibir_puntos(-1);
+
+        }
+        //Dreta
+        if (Input.GetMouseButton(1))
+        {
+            recibir_puntos(1);
+        }
+
+    }
+
     //AQUI ENVIAR TODOS LOS PUNTOS DESDE CUALQUIER SCRIPT
     //Aqu� llegaran los nuevos puntos de otros scripts y de aqui cambia el contador
     public void recibir_puntos(float points)
