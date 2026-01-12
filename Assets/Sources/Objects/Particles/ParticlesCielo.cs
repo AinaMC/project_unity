@@ -72,7 +72,7 @@ public class ParticlesCielo : MonoBehaviour
         else if (numComprobador <= 30) // Distopía
         {
             emissionTrueno.enabled = true;
-            AudioManagment.PlaySound(SoundType.SFX, 1);
+            //AudioManagment.PlaySound(SoundType.SFX, 1);
 
             emissionStars.enabled = false;
             emissionSakura.enabled = false;

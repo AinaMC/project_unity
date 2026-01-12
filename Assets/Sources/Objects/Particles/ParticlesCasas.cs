@@ -16,6 +16,7 @@ public class ParticlesCasas : MonoBehaviour
 
     public Transform parentCasas;
     private MeshRenderer[] meshesCasas;
+    public GameObject nomParentCasa;
     public MeshRenderer meshCasa;
 
     ParticleSystem clean;
@@ -24,7 +25,7 @@ public class ParticlesCasas : MonoBehaviour
 
     void Awake()
     {
-        fuego = GameObject.Find("Fuego").GetComponent<ParticleSystem>();
+        //fuego = GameObject.Find("Fuego").GetComponent<ParticleSystem>();
         fuego = GameObject.Find("FuegoCasa").GetComponent<ParticleSystem>();
         clean = GameObject.Find("Clean").GetComponent<ParticleSystem>();
         
