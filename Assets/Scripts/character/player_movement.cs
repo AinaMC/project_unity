@@ -7,7 +7,7 @@ using UnityEngine;
 public class player_movement : MonoBehaviour
 {
     [Header("Variables")]
-    public float runSpeed = 10f;
+    public float runSpeed;
     public float rotationSpeed = 20f;
     public float jumpForce; //Cambiar este en mov
     private float x, y;
@@ -27,6 +27,7 @@ public class player_movement : MonoBehaviour
         _inputHandler = GetComponent<InputHandler>();
         rb = GetComponent<Rigidbody>();
         jumpForce = 20f;
+        runSpeed = 10f;
     }
 
     void Update()
@@ -65,17 +66,16 @@ public class player_movement : MonoBehaviour
 
         float mundo_actual = mundo.estatus_mundo();
         change_Jump(mundo_actual);
+
     }
     void change_Jump(float x)
     {
-
             jumpForce = x - 10;
-
     }
     // Metodo para cambiar la velocidad de movimiento
     public void cambiar_vel(float new_vel)
     {
-        runSpeed = new_vel;
+        runSpeed = new_vel + 1 * Time.deltaTime;
     }
 
     private void Jump()
