@@ -26,7 +26,7 @@ public class TimeManager : MonoBehaviour
     public Gradient gradientSol;
     public Gradient gradientLluna;
     public Gradient gradientAmbient;
-    public Gradient gradientFanals;  
+    public Gradient gradientFanals;
 
     [Header("Gradients Utòpic")]
     public Gradient gradientSolUtopic;
@@ -37,7 +37,7 @@ public class TimeManager : MonoBehaviour
     [Header("Gradients Distòpic")]
     public Gradient gradientSolDistopic;
     public Gradient gradientLlunaDistopic;
-    public Gradient gradientFanalsDistopic; 
+    public Gradient gradientFanalsDistopic;
     public Gradient gradientAmbientDistopic;
 
     [Header("Emissió fanals")]
@@ -122,7 +122,6 @@ public class TimeManager : MonoBehaviour
         sol.color = solG.Evaluate(1f - blend);
         lluna.color = llunaG.Evaluate(blend);
 
-       
     }
 
     Gradient SeleccionarGradient(Gradient neutral, Gradient utopic, Gradient distopic)
@@ -136,7 +135,7 @@ public class TimeManager : MonoBehaviour
 
     // ───────────────────────── FANALS (EMISSIÓ) ─────────────────────────
 
-    
+
 
     void ActualitzarEmissioFanals()
     {
